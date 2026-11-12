@@ -422,7 +422,7 @@ function digits(s){ return String(s||"").replace(/\D/g,""); }
 function toast(t){ var e=$("toast"); e.textContent=t; e.classList.add("on"); clearTimeout(toast._t); toast._t=setTimeout(function(){e.classList.remove("on");},2200); }
 function money(s){ if(!s) return 0; var t=String(s).replace(/[^\d,.-]/g,""); if(t.indexOf(",")>-1) t=t.replace(/\./g,"").replace(",","."); var n=parseFloat(t); return isFinite(n)?n:0; }
 function waNum(f){ var d=digits(f); if(d.length===10||d.length===11) d="55"+d; return d; }
-function waHref(num,text){ return "https://wa.me/"+(num||"")+"?text="+encodeURIComponent(text); }
+function waHref(num,text){ return "https://api.whatsapp.com/send?"+(num?"phone="+num+"&":"")+"text="+encodeURIComponent(text); }
 function copy(text){
   try{ navigator.clipboard.writeText(text).then(function(){toast("Copiado");},function(){toast("Não deu para copiar aqui");}); }
   catch(e){ toast("Não deu para copiar aqui"); }
