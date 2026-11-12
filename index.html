@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0B0E10">
+<meta name="description" content="Ficha de crediário da Tecno Cell: compre seu celular no boleto.">
+<title>Crediário Tecno Cell</title>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: uma coluna estreita, tipo app de financeira; cliente vê a ficha, o dono vê o painel de aprovação */
+:root{
+  --bg:#F2F3F4; --card:#FFFFFF; --field:#F4F5F6; --ink:#0A0C0D; --ink-2:#474B4E; --ink-3:#7C8084;
+  --rule:#DFE1E3; --rule-2:#E9EBEC;
+  --accent:#1B1F21; --accent-ink:#FFFFFF; --accent-soft:#E4E6E8; --accent-line:#B7BCBF;
+  --ok:#2E7D52; --ok-soft:#E2EFE8; --ok-line:#9CCBB0;
+  --warn:#96681A; --warn-soft:#F6ECD9; --warn-line:#E2C690;
+  --bad:#A83E2B; --bad-soft:#F8E6E1; --bad-line:#E6B3A7;
+  --wa:#25D366; --wa-ink:#062512;
+  --metal:linear-gradient(168deg,#2A3135 0%,#141A1D 46%,#0B0E10 100%);
+  --metal-edge:rgba(255,255,255,.14);
+  --silver:linear-gradient(170deg,#FFFFFF 0%,#D4DADE 100%);
+  --shadow:0 1px 2px rgba(11,16,20,.05),0 10px 28px -14px rgba(11,16,20,.22);
+  --f-display:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  --f-body:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  --f-mono:ui-monospace,"SF Mono",SFMono-Regular,"Roboto Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0A0C0D; --card:#14171A; --field:#101315; --ink:#E9ECEE; --ink-2:#B3B8BC; --ink-3:#82888C;
+  --rule:#24282B; --rule-2:#1C2023;
+  --accent:#C7CDD1; --accent-ink:#0A0C0D; --accent-soft:#1E2225; --accent-line:#3A3F43;
+  --ok:#5FB886; --ok-soft:#142619; --ok-line:#2C5A3E;
+  --warn:#D4982F; --warn-soft:#2A2213; --warn-line:#5E4718;
+  --bad:#DE7A64; --bad-soft:#2E1711; --bad-line:#69372B;
+  --wa:#25D366; --wa-ink:#062512;
+  --metal:linear-gradient(168deg,#2A3135 0%,#141A1D 46%,#0B0E10 100%);
+  --metal-edge:rgba(255,255,255,.14);
+  --silver:linear-gradient(170deg,#FFFFFF 0%,#D4DADE 100%);
+  --shadow:0 1px 2px rgba(0,0,0,.45),0 10px 28px -14px rgba(0,0,0,.72);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0A0C0D; --card:#14171A; --field:#101315; --ink:#E9ECEE; --ink-2:#B3B8BC; --ink-3:#82888C;
+  --rule:#24282B; --rule-2:#1C2023;
+  --accent:#C7CDD1; --accent-ink:#0A0C0D; --accent-soft:#1E2225; --accent-line:#3A3F43;
+  --ok:#5FB886; --ok-soft:#142619; --ok-line:#2C5A3E;
+  --warn:#D4982F; --warn-soft:#2A2213; --warn-line:#5E4718;
+  --bad:#DE7A64; --bad-soft:#2E1711; --bad-line:#69372B;
+  --wa:#25D366; --wa-ink:#062512;
+  --metal:linear-gradient(168deg,#2A3135 0%,#141A1D 46%,#0B0E10 100%);
+  --metal-edge:rgba(255,255,255,.14);
+  --silver:linear-gradient(170deg,#FFFFFF 0%,#D4DADE 100%);
+  --shadow:0 1px 2px rgba(0,0,0,.45),0 10px 28px -14px rgba(0,0,0,.72);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;-webkit-text-size-adjust:100%}
+.wrap{max-width:580px;margin:0 auto;padding-block:0 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:800;margin:0;letter-spacing:-.02em;text-wrap:balance}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+/* topo */
+.brand{display:flex;align-items:center;gap:12px;padding-block:22px 6px}
+.logo{width:44px;height:44px;flex:0 0 44px;border-radius:12px;background:radial-gradient(125% 145% at 20% -12%,rgba(255,255,255,.2),rgba(255,255,255,0) 58%),linear-gradient(168deg,#1E2427 0%,#0A0D0F 100%);border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;padding:6px;box-shadow:0 5px 14px -6px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.13)}
+.logo img{width:100%;height:auto;display:block}
+.brand b{display:block;font-size:16px;font-weight:800;letter-spacing:.05em;line-height:1.1}
+.brand small{display:block;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+.tabs{margin-left:auto;display:flex;background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:3px;gap:2px}
+.tabs button{border:0;background:transparent;color:var(--ink-2);font:700 12.5px var(--f-body);padding:7px 11px;border-radius:7px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--metal);color:#FFFFFF}
+
+.hero{padding-block:14px 4px}
+.hero--metal{margin-top:10px;padding:22px 18px;border-radius:20px;background:repeating-linear-gradient(101deg,rgba(255,255,255,.022) 0 1px,rgba(255,255,255,0) 1px 3px),radial-gradient(120% 200% at 8% -40%,rgba(255,255,255,.13),rgba(255,255,255,0) 58%),var(--metal);border:1px solid rgba(255,255,255,.1);box-shadow:0 18px 40px -18px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.12);color:#F2F4F5}
+.hero--metal .eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.58)}
+.hero--metal h1{color:#FFFFFF;margin-top:6px}
+.hero--metal p{color:rgba(255,255,255,.74)}
+.hero--metal .steps span{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:#E6EAEC}
+.hero--metal .steps span i{color:#FFFFFF}
+.hero h1{font-size:clamp(25px,6.4vw,32px);line-height:1.12;font-weight:800;letter-spacing:-.025em}
+.hero p{margin:8px 0 0;color:var(--ink-2);max-width:46ch}
+.steps{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.steps span{font-size:12.5px;font-weight:600;color:var(--ink-2);background:var(--card);border:1px solid var(--rule);padding:6px 10px;border-radius:999px}
+.steps span i{font-style:normal;font-family:var(--f-mono);color:var(--accent);margin-right:5px}
+
+/* cards e campos */
+.card{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:18px 16px;margin-top:14px;box-shadow:var(--shadow)}
+.card h2{font-size:16px;margin-bottom:14px}
+.card h2 small{display:block;font-family:var(--f-body);font-size:12.5px;font-weight:500;color:var(--ink-3);letter-spacing:0;margin-top:2px}
+.fields{display:grid;gap:13px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row2 > *{min-width:0}
+label.f{display:grid;gap:6px}
+label.f > span{font-size:11.5px;font-weight:700;color:var(--ink-2);letter-spacing:.06em;text-transform:uppercase}
+label.f > span em{font-style:normal;text-transform:none;letter-spacing:0;color:var(--ink-3);font-weight:600}
+input,select,textarea{width:100%;font:500 16px var(--f-body);color:var(--ink);background:var(--field);border:1px solid var(--rule);border-radius:10px;padding:12px 13px;-webkit-appearance:none;appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--ink-3) 50%),linear-gradient(135deg,var(--ink-3) 50%,transparent 50%);background-position:calc(100% - 18px) 52%,calc(100% - 13px) 52%;background-size:5px 5px;background-repeat:no-repeat;padding-right:32px}
+textarea{min-height:120px;resize:vertical;font-size:14px;line-height:1.5}
+input.money,input.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+input::placeholder,textarea::placeholder{color:var(--ink-3);opacity:1}
+input[aria-invalid="true"],select[aria-invalid="true"]{border-color:var(--bad);background:var(--bad-soft)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.money-wrap{position:relative}
+.money-wrap .cur{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-family:var(--f-mono);font-size:14px;color:var(--ink-3);pointer-events:none}
+.money-wrap input{padding-left:40px}
+.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(54px,1fr));gap:7px}
+.chip{border:1px solid var(--rule);background:var(--field);color:var(--ink-2);border-radius:9px;padding:10px 0;cursor:pointer;font:600 13px var(--f-mono)}
+.chip[aria-pressed="true"]{background:var(--metal);border-color:transparent;color:#FFFFFF}
+.consent{display:flex;gap:11px;align-items:flex-start;font-size:14px;color:var(--ink-2);line-height:1.45;cursor:pointer}
+.consent input{width:22px;height:22px;flex:0 0 22px;margin-top:1px;-webkit-appearance:auto;appearance:auto;accent-color:var(--accent);padding:0}
+.err{font-size:13px;color:var(--bad);font-weight:600;margin:12px 2px 0}
+.note{font-size:13px;color:var(--ink-3);line-height:1.45;margin:0}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:16px 18px;border-radius:14px;cursor:pointer;font:750 15.5px var(--f-display);border:1px solid transparent;text-decoration:none;letter-spacing:-.01em}
+.btn-main{background:var(--metal);color:#FFFFFF;box-shadow:inset 0 1px 0 var(--metal-edge),0 8px 18px -10px rgba(0,0,0,.6)}
+.btn-wa{background:var(--wa);color:var(--wa-ink)}
+.btn-ghost{background:var(--card);color:var(--ink-2);border-color:var(--rule);font-size:14px;padding:12px}
+.btn:hover{filter:brightness(1.06)}
+.btn-row{display:grid;gap:9px;margin-top:16px}
+
+/* tela de envio */
+.done{text-align:center;padding:26px 18px}
+.done .tick{width:58px;height:58px;border-radius:50%;background:var(--ok-soft);color:var(--ok);display:grid;place-items:center;margin:0 auto 12px;font-size:28px;border:1px solid var(--ok-line)}
+.done h2{font-size:21px;margin-bottom:6px}
+.done p{color:var(--ink-2);margin:0 auto;max-width:40ch}
+.proto{display:inline-block;margin-top:12px;font-family:var(--f-mono);font-size:14px;background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent-line);border-radius:8px;padding:6px 12px}
+.docs{text-align:left;margin:18px 0 0;padding:14px;border-radius:12px;background:var(--field);border:1px solid var(--rule-2);display:grid;gap:7px;font-size:14px}
+.docs b{font-family:var(--f-display);font-size:13px;letter-spacing:.02em}
+
+/* painel */
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.kpi{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:13px 12px}
+.kpi small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.kpi b{display:block;font-family:var(--f-mono);font-size:24px;font-weight:600;letter-spacing:-.03em;margin-top:3px}
+.kpi span{font-size:11.5px;color:var(--ink-3)}
+.summary{display:grid;gap:0;border:1px solid var(--rule-2);border-radius:12px;overflow:hidden}
+.summary div{display:flex;gap:10px;padding:9px 12px;font-size:14px;background:var(--field)}
+.summary div + div{border-top:1px solid var(--rule-2)}
+.summary dt{color:var(--ink-3);flex:0 0 112px;font-size:12.5px;font-weight:600;padding-top:1px}
+.summary dd{margin:0;min-width:0;overflow-wrap:anywhere;font-weight:600}
+.meter{margin-top:14px;padding:13px;border-radius:12px;background:var(--field);border:1px solid var(--rule-2)}
+.mline{display:flex;align-items:baseline;gap:8px}
+.mline + .mline{margin-top:6px}
+.mline .lab{font-size:11.5px;font-weight:700;color:var(--ink-2);letter-spacing:.05em;text-transform:uppercase}
+.mline .val{margin-left:auto;font-family:var(--f-mono);font-size:16px;font-weight:600}
+.track{height:8px;border-radius:5px;background:var(--rule);overflow:hidden;margin-top:10px}
+.fill{height:100%;width:0;border-radius:5px;background:var(--ok);transition:width .3s,background .3s}
+.checks{display:grid;gap:9px}
+.check{display:grid;gap:10px;padding:12px;border-radius:12px;border:1px solid var(--rule);background:var(--field)}
+.check .t b{display:block;font-size:14px;font-weight:700;line-height:1.3}
+.check .t small{font-size:12px;color:var(--ink-3)}
+.check[data-tone="ok"]{border-color:var(--ok-line);background:var(--ok-soft)}
+.check[data-tone="warn"]{border-color:var(--warn-line);background:var(--warn-soft)}
+.check[data-tone="bad"]{border-color:var(--bad-line);background:var(--bad-soft)}
+.seg{display:flex;border:1px solid var(--rule);border-radius:9px;overflow:hidden;background:var(--card)}
+.seg button{flex:1;border:0;background:transparent;color:var(--ink-3);cursor:pointer;font:700 12px var(--f-body);padding:10px 6px;letter-spacing:.03em}
+.seg button + button{border-left:1px solid var(--rule)}
+.seg button[aria-pressed="true"][data-tone="ok"]{background:var(--ok);color:var(--card)}
+.seg button[aria-pressed="true"][data-tone="warn"]{background:var(--warn);color:var(--card)}
+.seg button[aria-pressed="true"][data-tone="bad"]{background:var(--bad);color:var(--card)}
+.seg button[aria-pressed="true"][data-tone="flat"]{background:var(--ink-2);color:var(--card)}
+.score-box{display:flex;align-items:center;gap:16px}
+.score-num{font-family:var(--f-mono);font-size:46px;font-weight:600;letter-spacing:-.05em;line-height:1}
+.score-num small{font-size:13px;color:var(--ink-3);letter-spacing:0;margin-left:2px}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;font:700 13px var(--f-display);border:1px solid transparent}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.p-ok{background:var(--ok-soft);color:var(--ok);border-color:var(--ok-line)}
+.p-warn{background:var(--warn-soft);color:var(--warn);border-color:var(--warn-line)}
+.p-bad{background:var(--bad-soft);color:var(--bad);border-color:var(--bad-line)}
+.p-idle{background:var(--field);color:var(--ink-3);border-color:var(--rule)}
+.reason{font-size:13.5px;color:var(--ink-2);margin:10px 0 0}
+.decide{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px}
+.decide button{border-radius:11px;padding:13px 6px;font:700 14px var(--f-display);cursor:pointer;border:1px solid}
+.d-ok{background:var(--ok);color:var(--card);border-color:var(--ok)}
+.d-warn{background:var(--warn-soft);color:var(--warn);border-color:var(--warn-line)}
+.d-bad{background:var(--bad-soft);color:var(--bad);border-color:var(--bad-line)}
+.reply{margin-top:14px;padding:14px;border-radius:12px;border:1px solid var(--accent-line);background:var(--accent-soft)}
+.reply textarea{background:var(--card);min-height:130px}
+.hist{display:grid;gap:8px}
+.hrow{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:center;padding:11px 12px;border:1px solid var(--rule);border-radius:11px;background:var(--field)}
+.hrow .s{font-family:var(--f-mono);font-weight:600;font-size:15px;width:30px;text-align:center}
+.hrow .n{min-width:0}
+.hrow .n b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hrow .n small{font-size:11.5px;color:var(--ink-3);font-family:var(--f-mono)}
+.empty{font-size:13.5px;color:var(--ink-3);text-align:center;padding:14px 4px}
+details.cfg > summary{cursor:pointer;font:700 14px var(--f-display);list-style:none;display:flex}
+details.cfg > summary::-webkit-details-marker{display:none}
+details.cfg > summary::after{content:"+";margin-left:auto;font-family:var(--f-mono);color:var(--ink-3)}
+details.cfg[open] > summary::after{content:"\2013"}
+details.cfg[open] > summary{margin-bottom:14px}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,12px);background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:999px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50;max-width:88vw;text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+footer{margin-top:22px;text-align:center;font-size:12px;color:var(--ink-3)}
+@media (max-width:420px){.row2{grid-template-columns:1fr}.kpi b{font-size:20px}.summary dt{flex-basis:92px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="brand">
+    <div class="logo"><img alt="Tecno Cell" src="data:image/png;base64,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"></div>
+    <div><b>TECNO CELL</b><small>Crediário próprio</small></div>
+    <nav class="tabs" id="tabs" hidden>
+      <button type="button" id="tabPainel" aria-pressed="true">Painel</button>
+      <button type="button" id="tabFicha" aria-pressed="false">Ficha</button>
+    </nav>
+  </header>
+
+  <!-- ================= FICHA DO CLIENTE ================= -->
+  <main id="viewFicha">
+    <section class="hero hero--metal">
+      <div class="eyebrow">Crediário Tecno Cell · sem cartão</div>
+      <h1>Seu iPhone no boleto</h1>
+      <p>Preencha a ficha em uns 3 minutos. A análise é feita pela loja e a resposta chega no seu WhatsApp.</p>
+      <div class="steps"><span><i>1</i>Preencha</span><span><i>2</i>Envie no WhatsApp</span><span><i>3</i>Mande os documentos</span></div>
+    </section>
+
+    <form id="form" novalidate>
+      <section class="card">
+        <h2>Seus dados</h2>
+        <div class="fields">
+          <label class="f"><span>Nome completo</span><input id="c_nome" type="text" autocomplete="name" placeholder="Como está no documento" required></label>
+          <div class="row2">
+            <label class="f"><span>CPF</span><input id="c_cpf" type="tel" class="num" inputmode="numeric" placeholder="000.000.000-00" required></label>
+            <label class="f"><span>Nascimento</span><input id="c_nasc" type="tel" class="num" inputmode="numeric" placeholder="dd/mm/aaaa" required></label>
+          </div>
+          <label class="f"><span>Seu WhatsApp</span><input id="c_fone" type="tel" class="num" inputmode="numeric" autocomplete="tel" placeholder="(37) 99999-9999" required></label>
+          <label class="f"><span>Endereço</span><input id="c_end" type="text" autocomplete="street-address" placeholder="Rua, número, bairro e cidade" required></label>
+          <label class="f"><span>Nome da mãe</span><input id="c_mae" type="text" placeholder="Nome completo" required></label>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Trabalho e renda</h2>
+        <div class="fields">
+          <label class="f"><span>Tipo de renda</span>
+            <select id="c_vinc" required>
+              <option value="">Escolha</option>
+              <option>CLT (carteira assinada)</option>
+              <option>Servidor público</option>
+              <option>Aposentado ou pensionista</option>
+              <option>Autônomo</option>
+              <option>Outro</option>
+            </select></label>
+          <div class="row2">
+            <label class="f"><span>Onde trabalha</span><input id="c_emp" type="text" placeholder="Empresa" required></label>
+            <label class="f"><span>Cargo</span><input id="c_cargo" type="text" placeholder="Função"></label>
+          </div>
+          <label class="f"><span>Tempo no emprego atual</span>
+            <select id="c_tempo" required>
+              <option value="">Escolha</option>
+              <option>Menos de 6 meses</option>
+              <option>6 meses a 1 ano</option>
+              <option>1 a 2 anos</option>
+              <option>Mais de 2 anos</option>
+            </select></label>
+          <div class="row2">
+            <label class="f"><span>Renda mensal</span><div class="money-wrap"><span class="cur">R$</span><input id="c_renda" type="text" class="money" inputmode="numeric" placeholder="0,00" required></div></label>
+            <label class="f"><span>Já paga parcelas <em>(total/mês)</em></span><div class="money-wrap"><span class="cur">R$</span><input id="c_outras" type="text" class="money" inputmode="numeric" placeholder="0,00"></div></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>O que você quer comprar</h2>
+        <div class="fields">
+          <label class="f"><span>Aparelho</span><input id="c_prod" type="text" placeholder="Ex.: iPhone 15 128GB" required></label>
+          <div class="row2">
+            <label class="f"><span>Valor aproximado</span><div class="money-wrap"><span class="cur">R$</span><input id="c_valor" type="text" class="money" inputmode="numeric" placeholder="0,00" required></div></label>
+            <label class="f"><span>Entrada <em>(se tiver)</em></span><div class="money-wrap"><span class="cur">R$</span><input id="c_entrada" type="text" class="money" inputmode="numeric" placeholder="0,00"></div></label>
+          </div>
+          <label class="f"><span>Em quantas vezes</span><div class="chips" id="c_parc"></div></label>
+          <label class="f"><span>Já comprou na Tecno Cell?</span>
+            <select id="c_hist" required>
+              <option value="">Escolha</option>
+              <option>Não, é a primeira vez</option>
+              <option>Sim, à vista ou no cartão</option>
+              <option>Sim, no boleto ou crediário</option>
+            </select></label>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Referências<small>Duas pessoas ou lojas que conhecem você</small></h2>
+        <div class="fields">
+          <div class="row2">
+            <label class="f"><span>Referência 1</span><input id="c_r1n" type="text" placeholder="Nome" required></label>
+            <label class="f"><span>Telefone</span><input id="c_r1f" type="tel" class="num" inputmode="numeric" placeholder="(00) 00000-0000" required></label>
+          </div>
+          <div class="row2">
+            <label class="f"><span>Referência 2</span><input id="c_r2n" type="text" placeholder="Nome"></label>
+            <label class="f"><span>Telefone</span><input id="c_r2f" type="tel" class="num" inputmode="numeric" placeholder="(00) 00000-0000"></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <label class="consent"><input type="checkbox" id="c_ok"><span>Autorizo a Tecno Cell a consultar meu CPF nos órgãos de proteção ao crédito (SPC/Serasa) para analisar esta compra. Declaro que as informações são verdadeiras.</span></label>
+        <p class="err" id="formErr" hidden></p>
+        <div class="btn-row"><button type="submit" class="btn btn-main" id="btnSubmit">Concluir ficha</button></div>
+      </section>
+    </form>
+
+    <section class="card done" id="done" hidden>
+      <div class="tick">✓</div>
+      <h2>Falta só enviar</h2>
+      <p>Toque no botão verde para mandar sua ficha no WhatsApp da loja.</p>
+      <div class="proto" id="protoTxt">TC-0000</div>
+      <div class="btn-row">
+        <a class="btn btn-wa" id="btnSend" href="#" target="_blank" rel="noopener">Enviar ficha no WhatsApp</a>
+        <button type="button" class="btn btn-ghost" id="btnCopyFicha">Copiar ficha</button>
+      </div>
+      <p class="note" id="lojaNum" style="margin-top:10px"></p>
+      <div class="docs">
+        <b>DEPOIS, MANDE NA MESMA CONVERSA:</b>
+        <span>📷 Foto do RG ou CNH (frente e verso)</span>
+        <span>📄 Comprovante de renda (holerite ou extrato dos últimos 3 meses)</span>
+        <span>🏠 Comprovante de endereço</span>
+      </div>
+      <div class="btn-row"><button type="button" class="btn btn-ghost" id="btnEdit">Corrigir algum dado</button></div>
+    </section>
+    <footer><b style="letter-spacing:.06em">TECNO CELL</b> · Luz, MG · Sujeito a análise de crédito</footer>
+  </main>
+
+  <!-- ================= PAINEL DO DONO ================= -->
+  <main id="viewPainel" hidden>
+    <section class="hero">
+      <h1>Análise de crédito</h1>
+      <p>Cole a ficha que chegou no WhatsApp, confira o SPC e decida.</p>
+    </section>
+
+    <div class="kpis">
+      <div class="kpi"><small>Analisadas hoje</small><b id="kHoje">0</b><span id="kHojeSub">fichas</span></div>
+      <div class="kpi"><small>Aprovadas hoje</small><b id="kAprov">0</b><span id="kAprovSub">—</span></div>
+      <div class="kpi"><small>Aprovação no mês</small><b id="kTaxa">—</b><span id="kMesSub">0 fichas</span></div>
+    </div>
+
+    <section class="card">
+      <h2>1. Cole a ficha</h2>
+      <textarea id="paste" placeholder="Segure a mensagem da ficha no WhatsApp, copie e cole aqui"></textarea>
+      <div class="btn-row"><button type="button" class="btn btn-main" id="btnLer">Ler ficha</button></div>
+      <p class="err" id="pasteErr" hidden></p>
+    </section>
+
+    <div id="analise" hidden>
+      <section class="card">
+        <h2 id="aNome">Cliente</h2>
+        <dl class="summary" id="aResumo"></dl>
+        <div class="meter">
+          <div class="row2">
+            <label class="f"><span>Parcela real</span><div class="money-wrap"><span class="cur">R$</span><input id="a_parcela" type="text" class="money" inputmode="numeric"></div></label>
+            <label class="f"><span>Parcelas</span><input id="a_n" type="tel" class="num" inputmode="numeric"></label>
+          </div>
+          <div class="mline" style="margin-top:12px"><span class="lab">Comprometimento da renda</span><span class="val" id="aPct">—</span></div>
+          <div class="track"><div class="fill" id="aFill"></div></div>
+          <p class="note" id="aPctNote" style="margin-top:8px"></p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>2. Sua conferência</h2>
+        <div class="checks" id="checks"></div>
+      </section>
+
+      <section class="card">
+        <div class="score-box">
+          <div class="score-num" id="aScore">0<small>/100</small></div>
+          <div><span class="pill p-idle" id="aPill">Aguardando</span></div>
+        </div>
+        <p class="reason" id="aReason"></p>
+        <div class="decide">
+          <button type="button" class="d-ok" id="dAprova">Aprovar</button>
+          <button type="button" class="d-warn" id="dContra">Contraproposta</button>
+          <button type="button" class="d-bad" id="dRecusa">Recusar</button>
+        </div>
+        <div class="reply" id="reply" hidden>
+          <label class="f"><span id="replyLab">Resposta para o cliente</span><textarea id="replyTxt"></textarea></label>
+          <div class="btn-row">
+            <a class="btn btn-wa" id="btnReply" href="#" target="_blank" rel="noopener">Responder no WhatsApp do cliente</a>
+          </div>
+          <p class="note" id="replySaved" style="margin-top:10px"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Últimas análises</h2>
+      <div class="hist" id="hist"><p class="empty" id="histEmpty">As fichas que você decidir aparecem aqui, com a contagem do dia e do mês.</p></div>
+    </section>
+
+    <section class="card">
+      <details class="cfg">
+        <summary>Regras da análise</summary>
+        <div class="fields">
+          <div class="row2">
+            <label class="f"><span>Score mínimo</span><input id="s_min" type="tel" class="num" inputmode="numeric"></label>
+            <label class="f"><span>Teto da renda %</span><input id="s_teto" type="tel" class="num" inputmode="numeric"></label>
+          </div>
+          <label class="f"><span>Juros do crediário <em>(% ao mês, Tabela Price)</em></span><input id="s_juros" type="text" class="num" inputmode="decimal" placeholder="0 = só divide o valor"></label>
+          <p class="note">Reprova direto: restrição no SPC, parcela acima do teto, ou sem carteira e sem extrato bom. Pontos: SPC limpo 25, carteira 6+ meses 20 (ou 14 pelo extrato), extrato bom 15 (fraco 7), já pagou na loja 15, referências confirmadas 10, parcela até 20% da renda 15.</p>
+          <button type="button" class="btn btn-ghost" id="btnSaveCfg">Salvar regras</button>
+        </div>
+      </details>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+"use strict";
+/* WhatsApp da loja que recebe as fichas (DDI+DDD+número, só dígitos) */
+var LOJA_WHATS = "5537991486624";
+
+var $ = function(id){ return document.getElementById(id); };
+var BRL = new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"});
+function brl(n){ return BRL.format(isFinite(n)?n:0); }
+function pctTxt(n){ return n.toLocaleString("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1})+"%"; }
+function digits(s){ return String(s||"").replace(/\D/g,""); }
+function toast(t){ var e=$("toast"); e.textContent=t; e.classList.add("on"); clearTimeout(toast._t); toast._t=setTimeout(function(){e.classList.remove("on");},2200); }
+function money(s){ if(!s) return 0; var t=String(s).replace(/[^\d,.-]/g,""); if(t.indexOf(",")>-1) t=t.replace(/\./g,"").replace(",","."); var n=parseFloat(t); return isFinite(n)?n:0; }
+function waNum(f){ var d=digits(f); if(d.length===10||d.length===11) d="55"+d; return d; }
+function waHref(num,text){ return "https://wa.me/"+(num||"")+"?text="+encodeURIComponent(text); }
+function copy(text){
+  try{ navigator.clipboard.writeText(text).then(function(){toast("Copiado");},function(){toast("Não deu para copiar aqui");}); }
+  catch(e){ toast("Não deu para copiar aqui"); }
+}
+
+/* ---------- máscaras ---------- */
+function maskPhone(v){ var d=digits(v).slice(0,11),o=d; if(d.length>2)o="("+d.slice(0,2)+") "+d.slice(2); if(d.length>6){var c=d.length>10?7:6;o="("+d.slice(0,2)+") "+d.slice(2,c)+"-"+d.slice(c);} return o; }
+function maskCpf(v){ var d=digits(v).slice(0,11),o=d; if(d.length>3)o=d.slice(0,3)+"."+d.slice(3); if(d.length>6)o=d.slice(0,3)+"."+d.slice(3,6)+"."+d.slice(6); if(d.length>9)o=d.slice(0,3)+"."+d.slice(3,6)+"."+d.slice(6,9)+"-"+d.slice(9); return o; }
+function maskDate(v){ var d=digits(v).slice(0,8),o=d; if(d.length>2)o=d.slice(0,2)+"/"+d.slice(2); if(d.length>4)o=d.slice(0,2)+"/"+d.slice(2,4)+"/"+d.slice(4); return o; }
+function bindMoney(el){ el.addEventListener("input",function(){ var d=digits(this.value).slice(0,10); this.dataset.v=d?String(parseInt(d,10)/100):"0"; this.value=d?(parseInt(d,10)/100).toLocaleString("pt-BR",{minimumFractionDigits:2}):""; this.removeAttribute("aria-invalid"); if(this.onmoney)this.onmoney(); }); }
+function mval(id){ return parseFloat($(id).dataset.v||"0")||0; }
+function setMoney(id,n){ var e=$(id); e.dataset.v=String(n||0); e.value=n?n.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}):""; }
+
+["c_fone","c_r1f","c_r2f"].forEach(function(id){ $(id).addEventListener("input",function(){ this.value=maskPhone(this.value); }); });
+$("c_cpf").addEventListener("input",function(){ this.value=maskCpf(this.value); });
+$("c_nasc").addEventListener("input",function(){ this.value=maskDate(this.value); });
+["c_renda","c_outras","c_valor","c_entrada","a_parcela"].forEach(function(id){ bindMoney($(id)); });
+document.addEventListener("input",function(e){ if(e.target.removeAttribute) e.target.removeAttribute("aria-invalid"); });
+
+/* ---------- parcelas ---------- */
+var PARC=[3,4,5,6,8,10,12,15,18,24], parcSel=12;
+PARC.forEach(function(n){ var b=document.createElement("button"); b.type="button"; b.className="chip"; b.textContent=n+"x"; b.setAttribute("aria-pressed",n===parcSel?"true":"false");
+  b.addEventListener("click",function(){ parcSel=n; Array.prototype.forEach.call($("c_parc").children,function(c){c.setAttribute("aria-pressed",c===b?"true":"false");}); });
+  $("c_parc").appendChild(b); });
+
+/* ---------- ficha -> mensagem ---------- */
+function protocolo(){ var d=new Date(); return "TC-"+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+"-"+String(Math.floor(1000+Math.random()*9000)); }
+var fichaTxt="";
+$("form").addEventListener("submit",function(e){
+  e.preventDefault();
+  var req=["c_nome","c_cpf","c_nasc","c_fone","c_end","c_mae","c_vinc","c_emp","c_tempo","c_renda","c_prod","c_valor","c_hist","c_r1n","c_r1f"];
+  var bad=[];
+  req.forEach(function(id){ var el=$(id); var empty = el.classList.contains("money") ? !(mval(id)>0) : !el.value.trim(); if(empty){ el.setAttribute("aria-invalid","true"); bad.push(el);} });
+  if(digits($("c_cpf").value).length!==11 && bad.indexOf($("c_cpf"))<0){ $("c_cpf").setAttribute("aria-invalid","true"); bad.push($("c_cpf")); }
+  if(digits($("c_fone").value).length<10 && bad.indexOf($("c_fone"))<0){ $("c_fone").setAttribute("aria-invalid","true"); bad.push($("c_fone")); }
+  var err=$("formErr");
+  if(bad.length){ err.textContent="Faltou preencher "+bad.length+(bad.length>1?" campos (marcados em vermelho).":" campo (marcado em vermelho)."); err.hidden=false; bad[0].focus(); return; }
+  if(!$("c_ok").checked){ err.textContent="Marque a autorização de consulta do CPF para continuar."; err.hidden=false; return; }
+  err.hidden=true;
+  var p=protocolo();
+  var L=["📝 *FICHA DE CREDIÁRIO – TECNO CELL*","*Protocolo:* "+p,"",
+    "👤 *DADOS*","*Nome:* "+$("c_nome").value.trim(),"*CPF:* "+$("c_cpf").value,"*Nascimento:* "+$("c_nasc").value,"*WhatsApp:* "+$("c_fone").value,"*Endereço:* "+$("c_end").value.trim(),"*Mãe:* "+$("c_mae").value.trim(),"",
+    "💼 *TRABALHO E RENDA*","*Tipo de renda:* "+$("c_vinc").value,"*Empresa:* "+$("c_emp").value.trim()];
+  if($("c_cargo").value.trim()) L.push("*Cargo:* "+$("c_cargo").value.trim());
+  L.push("*Tempo no emprego:* "+$("c_tempo").value,"*Renda mensal:* "+brl(mval("c_renda")),"*Outras parcelas:* "+brl(mval("c_outras")),"",
+    "📱 *COMPRA*","*Aparelho:* "+$("c_prod").value.trim(),"*Valor aproximado:* "+brl(mval("c_valor")),"*Entrada:* "+brl(mval("c_entrada")),"*Parcelas:* "+parcSel+"x","*Já comprou na loja:* "+$("c_hist").value,"",
+    "👥 *REFERÊNCIAS*","*Referência 1:* "+$("c_r1n").value.trim()+" – "+$("c_r1f").value);
+  if($("c_r2n").value.trim()) L.push("*Referência 2:* "+$("c_r2n").value.trim()+" – "+$("c_r2f").value);
+  L.push("","✅ Autorizo a consulta do meu CPF no SPC/Serasa.","📎 Vou enviar meus documentos em seguida.");
+  fichaTxt=L.join("\n");
+  $("protoTxt").textContent=p;
+  $("btnSend").href=waHref(LOJA_WHATS,fichaTxt);
+  $("lojaNum").textContent = LOJA_WHATS ? "WhatsApp da loja: +"+LOJA_WHATS.replace(/^(\d{2})(\d{2})(\d{4,5})(\d{4})$/,"$1 ($2) $3-$4") : "Se o botão não abrir, copie a ficha e mande para o WhatsApp da loja.";
+  $("form").hidden=true; $("done").hidden=false; window.scrollTo(0,0);
+});
+$("btnCopyFicha").addEventListener("click",function(){ copy(fichaTxt); });
+$("btnEdit").addEventListener("click",function(){ $("done").hidden=true; $("form").hidden=false; });
+
+/* ================= PAINEL ================= */
+var cfg={min:70,teto:30,juros:0};
+var ITEMS=[
+  {k:"spc",t:"SPC/Serasa limpo",s:"Você consultou o CPF",opts:[["sim","LIMPO","ok"],["nao","RESTRIÇÃO","bad"]]},
+  {k:"cart",t:"Carteira ou renda fixa 6+ meses",s:"Pelo que veio na ficha e no holerite",opts:[["sim","SIM","ok"],["nao","NÃO","warn"]]},
+  {k:"ext",t:"Extrato bancário",s:"Movimentação dos últimos 3 meses",opts:[["nao","NÃO ENVIOU","bad"],["fraco","FRACO","warn"],["bom","BOM","ok"]]},
+  {k:"loja",t:"Histórico na Tecno Cell",s:"Já comprou no seu crediário",opts:[["nunca","NUNCA","flat"],["atrasou","ATRASOU","bad"],["pagou","PAGOU OK","ok"]]},
+  {k:"ref",t:"Referências confirmadas",s:"Ligou e confirmou",opts:[["sim","SIM","ok"],["nao","NÃO","warn"]]}
+];
+var chk={}, ficha=null;
+
+ITEMS.forEach(function(it){
+  var row=document.createElement("div"); row.className="check"; row.id="chk_"+it.k;
+  row.innerHTML='<div class="t"><b></b><small></small></div><div class="seg"></div>';
+  row.querySelector("b").textContent=it.t; row.querySelector("small").textContent=it.s;
+  it.opts.forEach(function(o){ var b=document.createElement("button"); b.type="button"; b.textContent=o[1]; b.dataset.v=o[0]; b.dataset.tone=o[2]; b.setAttribute("aria-pressed","false");
+    b.addEventListener("click",function(){ chk[it.k]=chk[it.k]===o[0]?undefined:o[0]; syncChecks(); calc(); }); row.querySelector(".seg").appendChild(b); });
+  $("checks").appendChild(row);
+});
+function syncChecks(){ ITEMS.forEach(function(it){ var row=$("chk_"+it.k), tone=""; Array.prototype.forEach.call(row.querySelectorAll("button"),function(b){ var on=b.dataset.v===chk[it.k]; b.setAttribute("aria-pressed",on?"true":"false"); if(on)tone=b.dataset.tone; }); row.dataset.tone=tone; }); }
+
+var MAP={"protocolo":"protocolo","nome":"nome","cpf":"cpf","nascimento":"nasc","whatsapp":"fone","endereço":"end","endereco":"end","mãe":"mae","mae":"mae","tipo de renda":"vinc","empresa":"emp","cargo":"cargo","tempo no emprego":"tempo","renda mensal":"renda","outras parcelas":"outras","aparelho":"prod","valor aproximado":"valor","entrada":"entrada","parcelas":"parc","já comprou na loja":"hist","referência 1":"r1","referência 2":"r2"};
+function parseFicha(txt){
+  var o={};
+  txt.split(/\r?\n/).forEach(function(line){
+    var m=line.match(/\*\s*([^*:]+?)\s*:\s*\*\s*(.*)$/); if(!m) return;
+    var k=MAP[m[1].trim().toLowerCase()]; if(k) o[k]=m[2].trim();
+  });
+  return o;
+}
+function price(pv,n,i){ if(n<=0) return 0; if(!i) return pv/n; var r=i/100; return pv*r/(1-Math.pow(1+r,-n)); }
+
+$("btnLer").addEventListener("click",function(){
+  var o=parseFicha($("paste").value), err=$("pasteErr");
+  if(!o.nome||!o.renda){ err.textContent="Não reconheci a ficha. Cole a mensagem inteira que o cliente mandou, desde \"FICHA DE CREDIÁRIO\"."; err.hidden=false; return; }
+  err.hidden=true;
+  o.rendaN=money(o.renda); o.outrasN=money(o.outras); o.valorN=money(o.valor); o.entradaN=money(o.entrada); o.n=parseInt(digits(o.parc),10)||12;
+  ficha=o; chk={};
+  var formal=/CLT|Servidor|Aposentado/i.test(o.vinc||""), tempoOk=!/Menos de 6/i.test(o.tempo||"");
+  if(o.vinc) chk.cart=(formal&&(tempoOk||/Aposentado/i.test(o.vinc)))?"sim":"nao";
+  if(/boleto|crediário/i.test(o.hist||"")) chk.loja=undefined; else if(o.hist) chk.loja="nunca";
+  $("aNome").textContent=o.nome;
+  var rows=[["Protocolo",o.protocolo],["CPF",o.cpf],["Nascimento",o.nasc],["WhatsApp",o.fone],["Endereço",o.end],["Mãe",o.mae],["Renda",(o.vinc||"")+" · "+(o.emp||"")+(o.cargo?" ("+o.cargo+")":"")],["Tempo",o.tempo],["Renda mensal",brl(o.rendaN)+(o.outrasN?" · já paga "+brl(o.outrasN):"")],["Quer",(o.prod||"")+" · "+brl(o.valorN)+(o.entradaN?" · entrada "+brl(o.entradaN):"")],["Na loja",o.hist],["Referências",[o.r1,o.r2].filter(Boolean).join("\n")]];
+  var dl=$("aResumo"); dl.innerHTML="";
+  rows.forEach(function(r){ if(!r[1])return; var d=document.createElement("div"),dt=document.createElement("dt"),dd=document.createElement("dd"); dt.textContent=r[0]; dd.textContent=r[1]; dd.style.whiteSpace="pre-line"; d.appendChild(dt); d.appendChild(dd); dl.appendChild(d); });
+  $("a_n").value=o.n;
+  setMoney("a_parcela",Math.round(price(Math.max(0,o.valorN-o.entradaN),o.n,cfg.juros)*100)/100);
+  $("reply").hidden=true; $("analise").hidden=false; syncChecks(); calc();
+  $("analise").scrollIntoView({behavior:"smooth",block:"start"});
+});
+$("a_n").addEventListener("input",function(){ if(!ficha)return; var n=parseInt(digits(this.value),10)||0; ficha.n=n; setMoney("a_parcela",Math.round(price(Math.max(0,ficha.valorN-ficha.entradaN),n,cfg.juros)*100)/100); calc(); });
+$("a_parcela").onmoney=function(){ calc(); };
+
+var last=null;
+function calc(){
+  if(!ficha) return;
+  var parc=mval("a_parcela"), sal=ficha.rendaN, carga=parc+ficha.outrasN, pct=sal>0?carga/sal*100:null;
+  var pCom=0; if(pct!==null){ if(pct<=20)pCom=15; else if(pct<=25)pCom=11; else if(pct<=cfg.teto)pCom=6; }
+  var extBom=chk.ext==="bom";
+  var score=(chk.spc==="sim"?25:0)+(chk.cart==="sim"?20:(extBom?14:0))+(extBom?15:chk.ext==="fraco"?7:0)+(chk.loja==="pagou"?15:0)+(chk.ref==="sim"?10:0)+pCom;
+  var missing=ITEMS.filter(function(it){return !chk[it.k];}).map(function(it){return it.t;});
+  var v,cls,why;
+  if(chk.spc==="nao"){v="Recusar";cls="p-bad";why="Restrição no SPC/Serasa.";}
+  else if(pct!==null&&pct>cfg.teto){v="Recusar ou contraproposta";cls="p-bad";why="A parcela compromete "+pctTxt(pct)+" da renda, acima do teto de "+cfg.teto+"%.";}
+  else if(chk.cart==="nao"&&chk.ext&&!extBom){v="Recusar";cls="p-bad";why="Sem renda formal e o extrato não comprova renda.";}
+  else if(missing.length){v="Falta conferir";cls="p-idle";why="Falta: "+missing.join(", ")+".";}
+  else if(score>=cfg.min){v="Pode aprovar";cls="p-ok";why="Dentro da sua política. Parcela em "+pctTxt(pct)+" da renda.";}
+  else if(score>=cfg.min-15){v="Sua decisão";cls="p-warn";why="Score "+score+", perto do mínimo de "+cfg.min+". Uma entrada maior resolve.";}
+  else {v="Recusar";cls="p-bad";why="Score "+score+", bem abaixo do mínimo de "+cfg.min+".";}
+  if(chk.loja==="atrasou") why+=" Já atrasou no seu crediário.";
+  $("aScore").innerHTML=score+"<small>/100</small>";
+  $("aPill").className="pill "+cls; $("aPill").textContent=v; $("aReason").textContent=why;
+  var color=pct===null?"var(--rule)":pct<=25?"var(--ok)":pct<=cfg.teto?"var(--warn)":"var(--bad)";
+  $("aPct").textContent=pct===null?"—":pctTxt(pct); $("aPct").style.color=color;
+  $("aFill").style.width=(pct===null?0:Math.min(100,pct/50*100))+"%"; $("aFill").style.background=color;
+  var teto=sal*cfg.teto/100-ficha.outrasN;
+  $("aPctNote").textContent=pct===null?"":"Parcela máxima dentro do teto: "+brl(Math.max(0,teto))+(ficha.outrasN?" (já descontando o que ele paga hoje).":".");
+  last={score:score,pct:pct,parc:parc,sugestao:v,tetoParc:Math.max(0,teto)};
+}
+
+/* ---------- decisão ---------- */
+var MSG={
+  aprovado:function(f,l){ return "Olá, "+primeiro(f.nome)+"! 😊\n\nSua ficha de crediário na *Tecno Cell* foi *APROVADA* ✅\n\n📱 *"+(f.prod||"Aparelho")+"*\n"+(f.entradaN?"Entrada: "+brl(f.entradaN)+"\n":"")+f.n+"x de *"+brl(l.parc)+"* no boleto\n\nPara retirar seu aparelho, venha até a loja com seu documento original. Qual o melhor dia e horário pra você?"; },
+  contra:function(f,l){ var n=f.n, maxValor=f.entradaN+l.tetoParc*n; return "Olá, "+primeiro(f.nome)+"! 😊\n\nAnalisamos sua ficha na *Tecno Cell*. Do jeito que veio não conseguimos aprovar, mas temos uma condição pra você:\n\n✅ Aprovamos até *"+brl(Math.floor(maxValor))+"* em "+n+"x (parcela de até "+brl(l.tetoParc)+")\nou\n✅ O "+(f.prod||"aparelho")+" com uma entrada maior.\n\nQuer que eu te mostre as opções que cabem nesse valor?"; },
+  recusado:function(f){ return "Olá, "+primeiro(f.nome)+"!\n\nObrigado pelo interesse na *Tecno Cell*. Analisamos sua ficha e, neste momento, não conseguimos aprovar a compra no boleto.\n\nVocê ainda pode comprar à vista com desconto ou parcelar no cartão. Quer que eu te mande as condições?"; }
+};
+function primeiro(n){ return String(n||"").trim().split(/\s+/)[0]||""; }
+function decide(tipo){
+  if(!ficha||!last) return;
+  var txt=MSG[tipo](ficha,last);
+  $("replyLab").textContent=tipo==="aprovado"?"Resposta: aprovado":tipo==="contra"?"Resposta: contraproposta":"Resposta: recusado";
+  $("replyTxt").value=txt; $("reply").hidden=false;
+  updateReply();
+  save(tipo);
+}
+function updateReply(){ $("btnReply").href=waHref(waNum(ficha&&ficha.fone),$("replyTxt").value); }
+$("replyTxt").addEventListener("input",updateReply);
+$("dAprova").addEventListener("click",function(){decide("aprovado");});
+$("dContra").addEventListener("click",function(){decide("contra");});
+$("dRecusa").addEventListener("click",function(){decide("recusado");});
+
+/* ---------- dados (só o dono) ---------- */
+var db=null, docId=null, registros=[];
+function hoje(d){ d=d||new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+function save(decisao){
+  if(!db){ $("replySaved").textContent="Decisão não registrada: o histórico só funciona aberto na sua conta."; return; }
+  var f=ficha, rec={protocolo:f.protocolo||"",nome:f.nome||"",fone:f.fone||"",prod:f.prod||"",valor:f.valorN,entrada:f.entradaN,parcelas:f.n,parcela:last.parc,renda:f.rendaN,pct:last.pct===null?0:Math.round(last.pct*10)/10,score:last.score,sugestao:last.sugestao,decisao:decisao,dia:hoje(),criadoEm:Date.now()};
+  if(!docId) docId=(f.protocolo||"sem")+"-"+Date.now();
+  db.collection("analises").doc(docId).set(rec).then(function(){ $("replySaved").textContent="Registrada no histórico como "+(decisao==="contra"?"contraproposta":decisao)+"."; },function(){ $("replySaved").textContent="Não consegui salvar no histórico. A resposta continua pronta para enviar."; });
+}
+$("btnLer").addEventListener("click",function(){ docId=null; $("replySaved").textContent=""; });
+
+function renderHist(){
+  var box=$("hist"); Array.prototype.slice.call(box.querySelectorAll(".hrow")).forEach(function(n){n.remove();});
+  $("histEmpty").hidden=registros.length>0;
+  var d=hoje(), mes=d.slice(0,7);
+  var hj=registros.filter(function(r){return r.dia===d;}), ms=registros.filter(function(r){return (r.dia||"").slice(0,7)===mes;});
+  var ap=function(a){return a.filter(function(r){return r.decisao==="aprovado";}).length;};
+  $("kHoje").textContent=hj.length; $("kHojeSub").textContent=hj.length===1?"ficha":"fichas";
+  $("kAprov").textContent=ap(hj); $("kAprovSub").textContent=hj.length?Math.round(ap(hj)/hj.length*100)+"% das de hoje":"—";
+  $("kTaxa").textContent=ms.length?Math.round(ap(ms)/ms.length*100)+"%":"—"; $("kMesSub").textContent=ms.length+(ms.length===1?" ficha no mês":" fichas no mês");
+  registros.slice(0,40).forEach(function(r){
+    var row=document.createElement("div"); row.className="hrow";
+    var cls=r.decisao==="aprovado"?"p-ok":r.decisao==="contra"?"p-warn":"p-bad";
+    var lab=r.decisao==="aprovado"?"Aprovado":r.decisao==="contra"?"Contra":"Recusado";
+    row.innerHTML='<span class="s"></span><span class="n"><b></b><small></small></span><span class="pill '+cls+'"></span>';
+    row.querySelector(".s").textContent=r.score; row.querySelector("b").textContent=r.nome+(r.prod?" · "+r.prod:"");
+    var dt=new Date(r.criadoEm||0);
+    row.querySelector("small").textContent=dt.toLocaleDateString("pt-BR",{day:"2-digit",month:"2-digit"})+" "+dt.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"})+" · "+brl(r.valor)+" · "+(r.pct||0).toString().replace(".",",")+"%";
+    row.querySelector(".pill").textContent=lab; box.appendChild(row);
+  });
+}
+
+function showView(v){
+  $("viewPainel").hidden=v!=="painel"; $("viewFicha").hidden=v!=="ficha";
+  $("tabPainel").setAttribute("aria-pressed",v==="painel"?"true":"false"); $("tabFicha").setAttribute("aria-pressed",v==="ficha"?"true":"false");
+}
+$("tabPainel").addEventListener("click",function(){showView("painel");});
+$("tabFicha").addEventListener("click",function(){showView("ficha");});
+
+function fillCfg(){ $("s_min").value=cfg.min; $("s_teto").value=cfg.teto; $("s_juros").value=cfg.juros?String(cfg.juros).replace(".",","):""; }
+$("btnSaveCfg").addEventListener("click",function(){
+  cfg.min=parseInt(digits($("s_min").value),10)||70; cfg.teto=parseInt(digits($("s_teto").value),10)||30; cfg.juros=money($("s_juros").value)||0;
+  fillCfg(); calc();
+  if(db) db.doc("config/regras").set(cfg).then(function(){toast("Regras salvas");},function(){toast("Não consegui salvar as regras");}); else toast("Regras aplicadas nesta tela");
+});
+fillCfg();
+
+/* dono vê o painel; cliente vê só a ficha */
+if(window.claude&&window.claude.use){
+  window.claude.use("user").then(function(user){
+    if(!user) return false;
+    return Promise.resolve(user.isOwner()).catch(function(){return false;});
+  }).then(function(owner){
+    if(!owner) return;
+    $("tabs").hidden=false; showView("painel");
+    window.claude.use("db").then(function(d){
+      if(!d) return; db=d;
+      db.doc("config/regras").get().then(function(s){ var x=s&&s.data&&s.data(); if(x){ cfg.min=x.min||70; cfg.teto=x.teto||30; cfg.juros=x.juros||0; fillCfg(); calc(); } },function(){});
+      db.collection("analises").orderBy("criadoEm","desc").limit(500).onSnapshot(function(snap){
+        registros=snap.docs.map(function(x){return x.data()||{};}); renderHist();
+      },function(){ $("histEmpty").textContent="Não consegui carregar o histórico agora."; });
+    });
+  });
+}
+})();
+</script>
+
+</body>
+</html>
