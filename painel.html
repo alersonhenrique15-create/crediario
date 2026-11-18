@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0B0E10">
+<meta name="robots" content="noindex">
+<title>Painel · Crediário Tecno Cell</title>
+<link rel="icon" href="assets/icone-192.png">
+<link rel="apple-touch-icon" href="assets/icone-apple.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Crediário">
+<link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+
+<!-- ===================== LOGIN ===================== -->
+<div class="wrap login" id="telaLogin" hidden>
+  <header class="brand" style="justify-content:center">
+    <div class="logo"><img alt="Tecno Cell" src="assets/logo.png"></div>
+    <div><b>TECNO CELL</b><small>Painel do crediário</small></div>
+  </header>
+  <section class="card">
+    <h2>Quem está entrando?</h2>
+    <div class="fields">
+      <div class="quem" id="quem"></div>
+      <label class="f"><span>Senha</span><input id="senha" type="password" autocomplete="current-password" placeholder="Sua senha"></label>
+      <p class="err" id="loginErr" hidden></p>
+      <button type="button" class="btn btn-main" id="btnEntrar">Entrar</button>
+      <p class="note" id="loginNota"></p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== APLICATIVO ===================== -->
+<div class="wrap" id="telaApp" hidden>
+  <header class="brand">
+    <div class="logo"><img alt="Tecno Cell" src="assets/logo.png"></div>
+    <div><b>TECNO CELL</b><small id="quemSou">—</small></div>
+    <div class="dir">
+      <nav class="tabs" id="tabs">
+        <button type="button" data-v="novas" aria-pressed="true">Fichas<span class="cnt" id="cntNovas" hidden>0</span></button>
+        <button type="button" data-v="hist" aria-pressed="false">Histórico</button>
+        <button type="button" data-v="cfg" aria-pressed="false">Ajustes</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ---------- FILA ---------- -->
+  <main id="vnovas">
+    <div class="kpis">
+      <div class="kpi"><small>Esperando você</small><b id="kEsp">0</b><span id="kEspSub">fichas novas</span></div>
+      <div class="kpi"><small>Aprovadas hoje</small><b id="kAprov">0</b><span id="kAprovSub">—</span></div>
+      <div class="kpi"><small>Aprovação no mês</small><b id="kTaxa">—</b><span id="kMesSub">0 fichas</span></div>
+    </div>
+    <p class="aviso" id="avisoModo" hidden></p>
+    <section class="card">
+      <h2>Fichas para analisar<small id="subFila">Chega aqui na hora que o cliente envia</small></h2>
+      <div class="fila" id="fila"><p class="empty" id="filaVazia">Nenhuma ficha esperando. Quando um cliente preencher o link, ela aparece aqui.</p></div>
+      <div class="btn-row">
+        <a class="btn btn-ghost" id="btnLink" href="index.html" target="_blank" rel="noopener">Abrir a ficha como o cliente vê</a>
+        <button type="button" class="btn btn-ghost" id="btnCopiarLink">Copiar o link do Stories</button>
+        <button type="button" class="btn btn-ghost" id="btnExemplo" hidden>Criar ficha de exemplo</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ---------- ANALISE DE UMA FICHA ---------- -->
+  <main id="vficha" hidden>
+    <button type="button" class="voltar" id="btnVoltar">← Voltar para as fichas</button>
+    <section class="card">
+      <div style="display:flex;align-items:flex-start;gap:10px">
+        <h2 id="aNome" style="flex:1">Cliente</h2>
+        <span class="pill sm p-idle" id="aStatus">novo</span>
+      </div>
+      <p class="note mono" id="aProto" style="margin:0 0 12px"></p>
+      <dl class="summary" id="aResumo"></dl>
+      <div class="meter">
+        <div class="row2">
+          <label class="f"><span>Parcela real</span><div class="money-wrap"><span class="cur">R$</span><input id="a_parcela" type="text" class="money" inputmode="numeric"></div></label>
+          <label class="f"><span>Parcelas</span><input id="a_n" type="tel" class="num" inputmode="numeric"></label>
+        </div>
+        <div class="mline" style="margin-top:12px"><span class="lab">Comprometimento da renda</span><span class="val" id="aPct">—</span></div>
+        <div class="track"><div class="fill" id="aFill"></div></div>
+        <p class="note" id="aPctNote" style="margin-top:8px"></p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Sua conferência<small>Fica salva para a equipe toda ver</small></h2>
+      <div class="checks" id="checks"></div>
+    </section>
+
+    <section class="card">
+      <div class="score-box">
+        <div class="score-num" id="aScore">0<small>/100</small></div>
+        <div><span class="pill p-idle" id="aPill">Aguardando</span></div>
+      </div>
+      <p class="reason" id="aReason"></p>
+      <div class="decide" id="decide">
+        <button type="button" class="d-ok"   id="dAprova">Aprovar</button>
+        <button type="button" class="d-warn" id="dContra">Contraproposta</button>
+        <button type="button" class="d-bad"  id="dRecusa">Recusar</button>
+      </div>
+      <p class="note" id="semPermissao" hidden style="margin-top:14px">Só o administrador aprova ou recusa. Faça a conferência e avise o Alerson.</p>
+
+      <div class="reply" id="reply" hidden>
+        <label class="f"><span id="replyLab">Mensagem para o cliente</span><textarea id="replyTxt"></textarea></label>
+        <div class="btn-row">
+          <button type="button" class="btn btn-ok" id="btnConfirmar">Confirmar e avisar o cliente</button>
+          <a class="btn btn-wa" id="btnWa" href="#" target="_blank" rel="noopener">Abrir no WhatsApp e mandar eu mesmo</a>
+          <button type="button" class="btn btn-ghost" id="btnCancelar">Cancelar</button>
+        </div>
+        <p class="note" id="replyNota" style="margin-top:10px"></p>
+      </div>
+      <p class="ok-note" id="jaDecidido" hidden></p>
+    </section>
+
+    <section class="card">
+      <h2>Anotação interna<small>O cliente não vê</small></h2>
+      <textarea id="aObs" placeholder="Ex.: ligar para a referência depois das 18h"></textarea>
+      <div class="btn-row"><button type="button" class="btn btn-ghost" id="btnObs">Salvar anotação</button></div>
+    </section>
+  </main>
+
+  <!-- ---------- HISTORICO ---------- -->
+  <main id="vhist" hidden>
+    <section class="hero"><h1>Histórico</h1><p>Todas as fichas que já passaram por aqui.</p></section>
+    <section class="card">
+      <div class="hist" id="hist"><p class="empty" id="histVazio">Ainda não há fichas decididas.</p></div>
+    </section>
+  </main>
+
+  <!-- ---------- AJUSTES ---------- -->
+  <main id="vcfg" hidden>
+    <section class="hero"><h1>Ajustes</h1><p id="cfgQuem">—</p></section>
+
+    <section class="card">
+      <h2>Aviso neste aparelho</h2>
+      <div class="fields">
+        <p class="note" id="notifEstado">—</p>
+        <button type="button" class="btn btn-ghost" id="btnNotif">Ativar aviso de ficha nova</button>
+        <p class="note">Com o painel aberto (mesmo em outra aba) toca um som e aparece o aviso. Com o painel fechado, quem avisa é o Telegram — configure abaixo.</p>
+      </div>
+    </section>
+
+    <section class="card" id="cardRegras">
+      <h2>Regras da análise</h2>
+      <div class="fields">
+        <div class="row2">
+          <label class="f"><span>Score mínimo</span><input id="s_min" type="tel" class="num" inputmode="numeric"></label>
+          <label class="f"><span>Teto da renda %</span><input id="s_teto" type="tel" class="num" inputmode="numeric"></label>
+        </div>
+        <label class="f"><span>Juros do crediário <em>(% ao mês)</em></span><input id="s_juros" type="text" class="num" inputmode="decimal" placeholder="0 = só divide o valor"></label>
+        <label class="f"><span>WhatsApp da loja</span><input id="s_whats" type="tel" class="num" inputmode="numeric" placeholder="5537999999999"></label>
+        <p class="note">Reprova direto: restrição no SPC, parcela acima do teto, ou sem carteira e sem extrato bom. Pontos: SPC limpo 25, carteira 6+ meses 20 (ou 14 pelo extrato), extrato bom 15 (fraco 7), já pagou na loja 15, referências confirmadas 10, parcela até 20% da renda 15.</p>
+        <button type="button" class="btn btn-ghost" id="btnRegras">Salvar regras</button>
+      </div>
+    </section>
+
+    <section class="card" id="cardIntegra" hidden>
+      <h2>Notificação e WhatsApp automático<small>Só você (administrador) vê esta parte</small></h2>
+      <details class="cfg" open>
+        <summary>Aviso na hora pelo Telegram (grátis)</summary>
+        <div class="fields">
+          <label class="f"><span>Token do bot</span><input id="i_tgtoken" type="text" placeholder="123456:ABC-DEF..." autocomplete="off"></label>
+          <label class="f"><span>Seu chat ID</span><input id="i_tgchat" type="text" placeholder="123456789" autocomplete="off"></label>
+          <p class="note">No Telegram: fale com <b>@BotFather</b> → /newbot → copie o token. Depois fale com <b>@userinfobot</b> → ele responde seu chat ID. Mande um "oi" para o seu bot uma vez.</p>
+        </div>
+      </details>
+      <details class="cfg">
+        <summary>WhatsApp automático para o cliente</summary>
+        <div class="fields">
+          <label class="f"><span>Provedor</span>
+            <select id="i_prov">
+              <option value="">Nenhum (eu mando pelo WhatsApp na mão)</option>
+              <option value="zapi">Z-API</option>
+              <option value="evolution">Evolution API</option>
+              <option value="cloud">WhatsApp Cloud API (Meta)</option>
+              <option value="webhook">Webhook (n8n, Make, Zapier)</option>
+            </select></label>
+          <label class="f"><span>URL</span><input id="i_waurl" type="url" placeholder="https://api.z-api.io/instances/SUA/token/SEU" autocomplete="off"></label>
+          <label class="f"><span>Token</span><input id="i_watoken" type="text" placeholder="Client-Token / apikey / Bearer" autocomplete="off"></label>
+          <label class="consent"><input type="checkbox" id="i_auto"><span>Mandar a mensagem para o cliente automaticamente quando eu decidir</span></label>
+          <label class="consent"><input type="checkbox" id="i_notifwa"><span>Avisar ficha nova também no meu WhatsApp</span></label>
+          <label class="f"><span>Meu WhatsApp</span><input id="i_adminwa" type="tel" class="num" inputmode="numeric" placeholder="5537991486624"></label>
+        </div>
+      </details>
+      <div class="btn-row">
+        <button type="button" class="btn btn-ghost" id="btnIntegra">Salvar notificação e WhatsApp</button>
+        <button type="button" class="btn btn-ghost" id="btnTestar">Mandar aviso de teste agora</button>
+      </div>
+      <p class="note" id="integraNota" style="margin-top:10px"></p>
+    </section>
+
+    <section class="card">
+      <h2>Link do Stories</h2>
+      <div class="fields">
+        <p class="note mono" id="linkPublico" style="overflow-wrap:anywhere"></p>
+        <button type="button" class="btn btn-ghost" id="btnCopiarLink2">Copiar link</button>
+        <p class="note">Use <b>?v=camila</b> no fim do link para saber quem mandou a ficha.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="btn-row"><button type="button" class="btn btn-ghost" id="btnSair">Sair do painel</button></div>
+    </section>
+  </main>
+
+  <footer><b style="letter-spacing:.06em">TECNO CELL</b> · painel do crediário</footer>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="config.js"></script>
+<script src="assets/comum.js"></script>
+<script src="assets/supabase.js"></script>
+<script src="assets/painel.js"></script>
+</body>
+</html>
