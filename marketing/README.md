@@ -27,6 +27,19 @@ Leva uns 5 minutos. Os arquivos saem em `marketing/saida/`.
 Os vídeos são **mudos de propósito**: no Reels você põe um áudio em alta na hora
 de postar, que é o que o Instagram entrega melhor.
 
+## As logos
+
+Ficam em `marketing/logo/`, recortadas da arte oficial da loja e salvas **com
+fundo transparente**, então encaixam em qualquer cor de fundo:
+
+| Arquivo | O que é | Onde é usado |
+|---|---|---|
+| `tecnocell-completa.png` | 1176×864 — monograma + TECNO CELL + Celulares | o final dos vídeos, crescendo |
+| `tecnocell-marca.png` | 773×587 — só o monograma TC | cabeçalho dos posts |
+
+Se um dia a logo mudar, troque esses dois arquivos mantendo os mesmos nomes e
+rode o gerador de novo. Todo o resto se ajusta sozinho.
+
 ## Como mudar o preço, o modelo e a chamada
 
 Abra `marketing/gerar.js` e mexa só no bloco **EDITE AQUI**, no topo:

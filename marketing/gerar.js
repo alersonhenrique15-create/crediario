@@ -33,14 +33,14 @@ const DUR = 10;      // segundos (máximo 10, como pedido)
 const SAIDA = path.join(__dirname, 'saida');
 const TMP = process.env.TMPDIR_FRAMES || '/tmp/claude-0/-home-user-crediario/1c85eb7c-7399-5dda-9949-ce2eca2e8105/scratchpad/frames';
 
-/* logo da loja, lida do index.html pra não duplicar o base64 */
-function pegarLogo() {
-  const h = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
-  const m = h.match(/<div class="logo"><img alt="Tecno Cell" src="(data:image\/png;base64,[A-Za-z0-9+/=]+)"/);
-  if (!m) throw new Error('Logo não encontrada no index.html');
-  return m[1];
+/* logos oficiais da loja, em marketing/logo/ */
+function pegarLogo(arquivo) {
+  const f = path.join(__dirname, 'logo', arquivo);
+  if (!fs.existsSync(f)) throw new Error('Logo não encontrada: ' + f);
+  return 'data:image/png;base64,' + fs.readFileSync(f).toString('base64');
 }
-const LOGO = pegarLogo();
+const LOGO_COMPLETA = pegarLogo('tecnocell-completa.png');  /* marca + TECNO CELL + Celulares */
+const LOGO_MARCA    = pegarLogo('tecnocell-marca.png');     /* só o monograma TC */
 
 const brl = n => n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
@@ -115,13 +115,8 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000}
 .fecho2{font-weight:600;font-size:calc(var(--u)*4.2);color:#A9B0B5;margin-top:calc(var(--u)*2.2)}
 #glow{position:absolute;left:50%;top:50%;width:calc(var(--u)*120);height:calc(var(--u)*120);transform:translate(-50%,-50%) scale(0);
   background:radial-gradient(circle,rgba(190,205,215,.30) 0%,rgba(190,205,215,.09) 32%,rgba(0,0,0,0) 62%);border-radius:50%}
-#logoBox{width:calc(var(--u)*34);height:calc(var(--u)*34);border-radius:calc(var(--u)*8.5);
-  background:radial-gradient(125% 145% at 20% -12%,rgba(255,255,255,.22),rgba(255,255,255,0) 58%),linear-gradient(168deg,#242B2F 0%,#0A0D0F 100%);
-  border:calc(var(--u)*.22) solid rgba(255,255,255,.18);display:grid;place-items:center;padding:calc(var(--u)*4.6);
-  box-shadow:0 calc(var(--u)*2.4) calc(var(--u)*6) rgba(0,0,0,.75), inset 0 calc(var(--u)*.2) 0 rgba(255,255,255,.16)}
-#logoBox img{width:100%;display:block}
-.marca{font-weight:900;font-size:calc(var(--u)*7.0);letter-spacing:.14em;margin-top:calc(var(--u)*4.2)}
-.contato{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:calc(var(--u)*4.0);color:#C2C9CE;margin-top:calc(var(--u)*2.0);letter-spacing:.02em}
+#logoFinal{width:calc(var(--u)*66);height:auto;display:block}
+.contato{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:calc(var(--u)*4.0);color:#C2C9CE;margin-top:calc(var(--u)*4.5);letter-spacing:.02em}
 .cta{font-weight:800;font-size:calc(var(--u)*3.2);letter-spacing:.2em;color:#0A0C0D;background:#25D366;
   padding:calc(var(--u)*1.7) calc(var(--u)*3.4);border-radius:999px;margin-top:calc(var(--u)*3.4)}
 #legal{position:absolute;left:0;right:0;bottom:calc(var(--u)*4);font-family:"Inter",sans-serif;
@@ -160,8 +155,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000}
 
   <div class="layer" id="L5">
     <div id="glow"></div>
-    <div id="logoBox"><img src="${LOGO}" alt=""></div>
-    <div class="marca metal" id="l5a">TECNO CELL</div>
+    <img id="logoFinal" src="${LOGO_COMPLETA}" alt="Tecno Cell">
     <div class="contato" id="l5b">${LOJA.fone}</div>
     <div class="cta" id="l5c">${LOJA.cta}</div>
   </div>
@@ -266,11 +260,8 @@ window.render = function(t){
   L5.style.filter = a < 1 ? 'blur(' + ((1-a) * 10).toFixed(2) + 'px)' : 'none';
   $('#glow').style.transform = 'translate(-50%,-50%) scale(' + (outCubic(a) * 1.25 + b * 0.35).toFixed(3) + ')';
   $('#glow').style.opacity = (0.35 + 0.65 * outCubic(a)).toFixed(3);
-  $('#l5a').style.opacity = seg(t, 8.85, 9.25).toFixed(3);
-  $('#l5b').style.opacity = seg(t, 9.05, 9.45).toFixed(3);
-  $('#l5c').style.opacity = seg(t, 9.25, 9.65).toFixed(3);
-  const gm = outCubic(seg(t, 8.90, 9.70));
-  $('#l5a').style.backgroundPositionX = (200 - gm * 170) + '%';
+  $('#l5b').style.opacity = seg(t, 8.95, 9.35).toFixed(3);
+  $('#l5c').style.opacity = seg(t, 9.20, 9.60).toFixed(3);
 
   /* o aviso legal some durante o logo */
   $('#legal').style.opacity = (1 - seg(t, 8.40, 8.80)).toFixed(3);
@@ -333,7 +324,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden}
 <div id="p">
  <div id="inner">
   <div class="topo">
-    <div class="lg"><img src="${LOGO}" alt=""></div>
+    <div class="lg"><img src="${LOGO_MARCA}" alt=""></div>
     <div><b>TECNO CELL</b><small>${LOJA.cidade}</small></div>
   </div>
 
