@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0B0E10">
+<meta name="description" content="Tecno Cell em Luz, MG: celular novo no boleto, com crediário próprio da loja. Sem cartão de crédito e sem banco. Simule sua parcela e faça a ficha pelo WhatsApp.">
+<meta property="og:title" content="Tecno Cell · Seu celular no boleto">
+<meta property="og:description" content="Crediário próprio, sem cartão e sem banco. Simule a parcela e faça sua ficha em 3 minutos.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<title>Tecno Cell · Celular no boleto em Luz, MG</title>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Página de marketing da loja: mesmo sistema visual da ficha (index.html).
+   O cliente chega aqui pelo Instagram/WhatsApp, simula a parcela e vai pra ficha. */
+:root{
+  --bg:#F2F3F4; --card:#FFFFFF; --field:#F4F5F6; --ink:#0A0C0D; --ink-2:#474B4E; --ink-3:#7C8084;
+  --rule:#DFE1E3; --rule-2:#E9EBEC;
+  --accent:#1B1F21; --accent-ink:#FFFFFF; --accent-soft:#E4E6E8; --accent-line:#B7BCBF;
+  --ok:#2E7D52; --ok-soft:#E2EFE8; --ok-line:#9CCBB0;
+  --warn:#96681A; --warn-soft:#F6ECD9; --warn-line:#E2C690;
+  --bad:#A83E2B; --bad-soft:#F8E6E1; --bad-line:#E6B3A7;
+  --wa:#25D366; --wa-ink:#062512;
+  --metal:linear-gradient(168deg,#2A3135 0%,#141A1D 46%,#0B0E10 100%);
+  --metal-edge:rgba(255,255,255,.14);
+  --silver:linear-gradient(170deg,#FFFFFF 0%,#D4DADE 100%);
+  --shadow:0 1px 2px rgba(11,16,20,.05),0 10px 28px -14px rgba(11,16,20,.22);
+  --f-display:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  --f-body:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  --f-mono:ui-monospace,"SF Mono",SFMono-Regular,"Roboto Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0A0C0D; --card:#14171A; --field:#101315; --ink:#E9ECEE; --ink-2:#B3B8BC; --ink-3:#82888C;
+  --rule:#24282B; --rule-2:#1C2023;
+  --accent:#C7CDD1; --accent-ink:#0A0C0D; --accent-soft:#1E2225; --accent-line:#3A3F43;
+  --ok:#5FB886; --ok-soft:#142619; --ok-line:#2C5A3E;
+  --warn:#D4982F; --warn-soft:#2A2213; --warn-line:#5E4718;
+  --bad:#DE7A64; --bad-soft:#2E1711; --bad-line:#69372B;
+  --shadow:0 1px 2px rgba(0,0,0,.45),0 10px 28px -14px rgba(0,0,0,.72);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0A0C0D; --card:#14171A; --field:#101315; --ink:#E9ECEE; --ink-2:#B3B8BC; --ink-3:#82888C;
+  --rule:#24282B; --rule-2:#1C2023;
+  --accent:#C7CDD1; --accent-ink:#0A0C0D; --accent-soft:#1E2225; --accent-line:#3A3F43;
+  --ok:#5FB886; --ok-soft:#142619; --ok-line:#2C5A3E;
+  --warn:#D4982F; --warn-soft:#2A2213; --warn-line:#5E4718;
+  --bad:#DE7A64; --bad-soft:#2E1711; --bad-line:#69372B;
+  --shadow:0 1px 2px rgba(0,0,0,.45),0 10px 28px -14px rgba(0,0,0,.72);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;-webkit-text-size-adjust:100%}
+.wrap{max-width:580px;margin:0 auto;padding-block:0 110px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:800;margin:0;letter-spacing:-.02em;text-wrap:balance}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+.brand{display:flex;align-items:center;gap:12px;padding-block:22px 6px}
+.logo{width:44px;height:44px;flex:0 0 44px;border-radius:12px;background:radial-gradient(125% 145% at 20% -12%,rgba(255,255,255,.2),rgba(255,255,255,0) 58%),linear-gradient(168deg,#1E2427 0%,#0A0D0F 100%);border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;padding:6px;box-shadow:0 5px 14px -6px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.13)}
+.logo img{width:100%;height:auto;display:block}
+.brand b{display:block;font-size:16px;font-weight:800;letter-spacing:.05em;line-height:1.1}
+.brand small{display:block;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+.brand .top-cta{margin-left:auto;font:700 12.5px var(--f-body);color:var(--ink-2);background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:9px 12px;text-decoration:none}
+
+.hero{padding-block:14px 4px}
+.hero--metal{margin-top:10px;padding:24px 18px;border-radius:20px;background:repeating-linear-gradient(101deg,rgba(255,255,255,.022) 0 1px,rgba(255,255,255,0) 1px 3px),radial-gradient(120% 200% at 8% -40%,rgba(255,255,255,.13),rgba(255,255,255,0) 58%),var(--metal);border:1px solid rgba(255,255,255,.1);box-shadow:0 18px 40px -18px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.12);color:#F2F4F5}
+.hero--metal .eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.58)}
+.hero--metal h1{color:#FFFFFF;margin-top:6px}
+.hero--metal p{color:rgba(255,255,255,.74)}
+.hero--metal .steps span{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:#E6EAEC}
+.hero--metal .steps span i{color:#FFFFFF}
+.hero h1{font-size:clamp(27px,7.2vw,35px);line-height:1.1;font-weight:800;letter-spacing:-.03em}
+.hero p{margin:10px 0 0;color:var(--ink-2);max-width:44ch}
+.steps{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.steps span{font-size:12.5px;font-weight:600;color:var(--ink-2);background:var(--card);border:1px solid var(--rule);padding:6px 10px;border-radius:999px}
+.steps span i{font-style:normal;font-family:var(--f-mono);color:var(--accent);margin-right:5px}
+
+.card{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:18px 16px;margin-top:14px;box-shadow:var(--shadow)}
+.card h2{font-size:16px;margin-bottom:14px}
+.card h2 small{display:block;font-family:var(--f-body);font-size:12.5px;font-weight:500;color:var(--ink-3);letter-spacing:0;margin-top:2px}
+.fields{display:grid;gap:13px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row2 > *{min-width:0}
+label.f{display:grid;gap:6px}
+label.f > span{font-size:11.5px;font-weight:700;color:var(--ink-2);letter-spacing:.06em;text-transform:uppercase}
+label.f > span em{font-style:normal;text-transform:none;letter-spacing:0;color:var(--ink-3);font-weight:600}
+input{width:100%;font:500 16px var(--f-body);color:var(--ink);background:var(--field);border:1px solid var(--rule);border-radius:10px;padding:12px 13px;-webkit-appearance:none;appearance:none}
+input.money{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+input::placeholder{color:var(--ink-3);opacity:1}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.money-wrap{position:relative}
+.money-wrap .cur{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-family:var(--f-mono);font-size:14px;color:var(--ink-3);pointer-events:none}
+.money-wrap input{padding-left:40px}
+.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(54px,1fr));gap:7px}
+.chip{border:1px solid var(--rule);background:var(--field);color:var(--ink-2);border-radius:9px;padding:10px 0;cursor:pointer;font:600 13px var(--f-mono)}
+.chip[aria-pressed="true"]{background:var(--metal);border-color:transparent;color:#FFFFFF}
+.note{font-size:13px;color:var(--ink-3);line-height:1.45;margin:0}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:16px 18px;border-radius:14px;cursor:pointer;font:750 15.5px var(--f-display);border:1px solid transparent;text-decoration:none;letter-spacing:-.01em}
+.btn-main{background:var(--metal);color:#FFFFFF;box-shadow:inset 0 1px 0 var(--metal-edge),0 8px 18px -10px rgba(0,0,0,.6)}
+.btn-wa{background:var(--wa);color:var(--wa-ink)}
+.btn-ghost{background:var(--card);color:var(--ink-2);border-color:var(--rule);font-size:14px;padding:12px}
+.btn-light{background:#FFFFFF;color:#0A0C0D}
+.btn-outline{background:rgba(255,255,255,.06);color:#FFFFFF;border-color:rgba(255,255,255,.28)}
+.btn:hover{filter:brightness(1.06)}
+.btn-row{display:grid;gap:9px;margin-top:18px}
+
+/* resultado da simulação */
+.quote{margin-top:16px;padding:16px;border-radius:14px;background:var(--field);border:1px solid var(--rule-2)}
+.quote .lab{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.quote .big{font-family:var(--f-mono);font-size:clamp(30px,8.6vw,40px);font-weight:600;letter-spacing:-.04em;line-height:1.05;margin-top:4px;display:block}
+.quote .big i{font-style:normal;font-size:15px;font-weight:600;color:var(--ink-3);letter-spacing:0;margin-left:6px;font-family:var(--f-body)}
+.quote .sub{font-size:13.5px;color:var(--ink-2);margin:8px 0 0}
+
+/* lista de vantagens */
+.perks{display:grid;gap:10px}
+.perk{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;padding:13px;border-radius:12px;background:var(--field);border:1px solid var(--rule-2)}
+.perk .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--accent-soft);border:1px solid var(--accent-line);font-size:17px;line-height:1}
+.perk b{display:block;font-size:14.5px;font-weight:750;line-height:1.3}
+.perk span{font-size:13.5px;color:var(--ink-2);display:block;margin-top:2px}
+
+/* passos numerados */
+.howto{display:grid;gap:11px;counter-reset:s}
+.how{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start}
+.how .n{width:30px;height:30px;border-radius:50%;background:var(--metal);color:#FFF;display:grid;place-items:center;font:700 14px var(--f-mono)}
+.how b{display:block;font-size:14.5px;line-height:1.3}
+.how span{font-size:13.5px;color:var(--ink-2);display:block;margin-top:2px}
+
+.docs{text-align:left;margin:16px 0 0;padding:14px;border-radius:12px;background:var(--field);border:1px solid var(--rule-2);display:grid;gap:7px;font-size:14px}
+.docs b{font-family:var(--f-display);font-size:13px;letter-spacing:.02em}
+
+/* ofertas */
+.offers{display:grid;gap:10px}
+.offer{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:14px;border-radius:13px;background:var(--field);border:1px solid var(--rule-2)}
+.offer .n b{display:block;font-size:15px;font-weight:750;line-height:1.25}
+.offer .n small{display:block;font-size:12.5px;color:var(--ink-3);margin-top:2px}
+.offer .p{text-align:right}
+.offer .p b{display:block;font-family:var(--f-mono);font-size:17px;font-weight:600;letter-spacing:-.02em}
+.offer .p small{display:block;font-size:11.5px;color:var(--ink-3)}
+.offer a{grid-column:1/-1;margin-top:2px}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 7px;border-radius:6px;background:var(--ok-soft);color:var(--ok);border:1px solid var(--ok-line);margin-bottom:5px}
+
+/* faq */
+details.q{border:1px solid var(--rule-2);border-radius:12px;background:var(--field);padding:13px 14px}
+details.q + details.q{margin-top:9px}
+details.q > summary{cursor:pointer;font:750 14.5px var(--f-display);list-style:none;display:flex;gap:10px;align-items:baseline;color:var(--ink)}
+details.q > summary::-webkit-details-marker{display:none}
+details.q > summary::after{content:"+";margin-left:auto;font-family:var(--f-mono);color:var(--ink-3);font-size:17px;line-height:1}
+details.q[open] > summary::after{content:"\2013"}
+details.q p{font-size:13.5px;color:var(--ink-2);margin:10px 0 0}
+
+/* loja */
+.store{display:grid;gap:9px}
+.store > div{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:14px;color:var(--ink-2);align-items:start}
+.store > div > div{min-width:0;line-height:1.45}
+.store b{color:var(--ink);font-weight:700}
+
+/* barra fixa no celular */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px max(12px,env(safe-area-inset-left,0px)) calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);border-top:1px solid var(--rule);transform:translateY(110%);transition:transform .25s}
+.sticky.on{transform:translateY(0)}
+.sticky .in{max-width:580px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.sticky .btn{padding:13px 10px;font-size:14px;border-radius:12px}
+
+footer{margin-top:24px;text-align:center;font-size:12px;color:var(--ink-3);line-height:1.6}
+@media (max-width:420px){.row2{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="brand">
+    <div class="logo"><img alt="Tecno Cell" src="data:image/png;base64,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"></div>
+    <div><b>TECNO CELL</b><small>Luz · MG</small></div>
+    <a class="top-cta" href="index.html">Fazer ficha</a>
+  </header>
+
+  <section class="hero hero--metal">
+    <div class="eyebrow">Crediário próprio · sem cartão</div>
+    <h1>Seu celular novo saindo no boleto</h1>
+    <p>Quem aprova é a loja, não o banco. Você escolhe o aparelho, combina a parcela e paga no boleto todo mês.</p>
+    <div class="steps"><span><i>1</i>Simule aqui</span><span><i>2</i>Preencha a ficha</span><span><i>3</i>Retire na loja</span></div>
+    <div class="btn-row">
+      <a class="btn btn-light" href="index.html">Quero fazer minha ficha</a>
+      <a class="btn btn-outline" id="waTop" href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Quanto vai ficar a parcela?<small>Faça a conta antes de vir na loja</small></h2>
+    <div class="fields">
+      <div class="row2">
+        <label class="f"><span>Valor do aparelho</span><div class="money-wrap"><span class="cur">R$</span><input id="s_valor" type="text" class="money" inputmode="numeric" placeholder="0,00"></div></label>
+        <label class="f"><span>Entrada <em>(se tiver)</em></span><div class="money-wrap"><span class="cur">R$</span><input id="s_entrada" type="text" class="money" inputmode="numeric" placeholder="0,00"></div></label>
+      </div>
+      <label class="f"><span>Em quantas vezes</span><div class="chips" id="s_parc"></div></label>
+    </div>
+    <div class="quote">
+      <span class="lab">Sua parcela fica em</span>
+      <span class="big" id="q_parc">R$ 0,00<i id="q_n">em 12x</i></span>
+      <p class="sub" id="q_sub">Coloque o valor do aparelho pra ver a parcela.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-wa" id="waSim" href="#" target="_blank" rel="noopener">Mandar essa simulação no WhatsApp</a>
+      <a class="btn btn-ghost" href="index.html">Já quero preencher a ficha</a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Por que comprar aqui</h2>
+    <div class="perks">
+      <div class="perk"><div class="ic">🏪</div><div><b>Crediário é nosso</b><span>A análise é feita aqui dentro, pela loja. Sem cartão de crédito e sem financeira no meio.</span></div></div>
+      <div class="perk"><div class="ic">⏱️</div><div><b>Resposta no mesmo dia</b><span>Ficha preenchida em horário comercial, resposta no seu WhatsApp no mesmo dia.</span></div></div>
+      <div class="perk"><div class="ic">🧾</div><div><b>Parcela combinada antes</b><span>Você já sai sabendo quanto vai pagar por mês, no boleto, sem surpresa depois.</span></div></div>
+      <div class="perk"><div class="ic">🤝</div><div><b>Loja da cidade</b><span>Somos de Luz. Se der problema no aparelho, você resolve com a gente, olho no olho.</span></div></div>
+    </div>
+  </section>
+
+  <section class="card" id="ofertasCard" hidden>
+    <h2>Aparelhos disponíveis<small>Fale com a gente pra conferir cor e estoque</small></h2>
+    <div class="offers" id="ofertas"></div>
+  </section>
+
+  <section class="card">
+    <h2>Como funciona</h2>
+    <div class="howto">
+      <div class="how"><div class="n">1</div><div><b>Preenche a ficha online</b><span>Leva uns 3 minutos pelo celular. No fim, ela vai pro nosso WhatsApp com um toque.</span></div></div>
+      <div class="how"><div class="n">2</div><div><b>Manda os documentos</b><span>Na mesma conversa, você envia as fotos. A gente analisa e responde.</span></div></div>
+      <div class="how"><div class="n">3</div><div><b>Retira o aparelho na loja</b><span>Aprovado, você passa aqui com o documento original, assina e leva o celular.</span></div></div>
+    </div>
+    <div class="docs">
+      <b>O QUE VOCÊ VAI PRECISAR:</b>
+      <span>📷 RG ou CNH (frente e verso)</span>
+      <span>📄 Comprovante de renda (holerite ou extrato dos últimos 3 meses)</span>
+      <span>🏠 Comprovante de endereço</span>
+      <span>📱 Dois contatos de referência</span>
+    </div>
+    <div class="btn-row"><a class="btn btn-main" href="index.html">Começar minha ficha</a></div>
+  </section>
+
+  <section class="card">
+    <h2>Dúvidas que todo mundo tem</h2>
+    <details class="q"><summary>Preciso de cartão de crédito?</summary><p>Não. O crediário é da própria loja e você paga no boleto. Cartão não entra na história.</p></details>
+    <details class="q"><summary>Estou negativado, consigo comprar?</summary><p>Depende. A gente analisa caso a caso, olhando renda e histórico — inclusive o seu histórico aqui na loja. Vale fazer a ficha: a resposta é rápida e não custa nada.</p></details>
+    <details class="q"><summary>Qual a parcela máxima que vocês aprovam?</summary><p>Como regra, a parcela não passa de 30% da sua renda mensal, pra não apertar seu orçamento. Se o valor pedido ficar acima disso, a gente sugere uma entrada ou um aparelho que caiba na sua parcela.</p></details>
+    <details class="q"><summary>Em quantas vezes posso pagar?</summary><p>De 3 a 24 vezes, conforme o valor do aparelho e a análise. Você escolhe na ficha e a gente confirma no WhatsApp.</p></details>
+    <details class="q"><summary>Posso pagar antes e quitar?</summary><p>Pode. Passa na loja ou chama no WhatsApp que a gente acerta a quitação das parcelas que faltam.</p></details>
+    <details class="q"><summary>O aparelho tem garantia?</summary><p>Sim, com nota fiscal e a garantia do fabricante. Qualquer defeito nesse prazo, traz aqui que a gente encaminha.</p></details>
+    <details class="q"><summary>Dá pra fazer tudo pelo WhatsApp?</summary><p>A ficha e a análise, sim. A retirada é na loja, com seu documento original na mão — é assim que a gente confirma que é você mesmo.</p></details>
+  </section>
+
+  <section class="card">
+    <h2>Vem na loja</h2>
+    <div class="store">
+      <div><span>📍</span><div id="st_end"><b>Luz, MG</b></div></div>
+      <div><span>🕗</span><div id="st_hora"></div></div>
+      <div><span>💬</span><div id="st_fone"></div></div>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-wa" id="waBottom" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    </div>
+  </section>
+
+  <footer>
+    <b style="letter-spacing:.06em">TECNO CELL</b> · Luz, MG<br>
+    Crediário próprio sujeito a análise de crédito. Simulação neste site é estimativa; as condições finais são confirmadas pela loja.
+  </footer>
+</div>
+
+<div class="sticky" id="sticky">
+  <div class="in">
+    <a class="btn btn-main" href="index.html">Fazer ficha</a>
+    <a class="btn btn-wa" id="waSticky" href="#" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ====================== EDITE AQUI ======================
+   Tudo que muda na loja está nestas linhas. */
+
+/* WhatsApp que recebe as mensagens (DDI+DDD+número, só dígitos) — mesmo da ficha */
+var LOJA_WHATS = "5537991486624";
+
+/* Juros do crediário em % ao mês. 0 = a parcela é só o valor dividido.
+   Deixe igual ao que está configurado no painel da ficha. */
+var JUROS = 0;
+
+/* Endereço e horário. Deixe "" no que não quiser mostrar. */
+var ENDERECO = "";                /* ex.: "Rua Rio Branco, 123 - Centro" */
+var HORARIO  = "Seg a sex, 8h às 18h · Sáb, 8h às 12h";
+
+/* Aparelhos em destaque. Deixe a lista vazia ([]) pra esconder a seção.
+   nome: modelo · obs: cor/memória/estado · valor: preço à vista em reais · tag: selo opcional */
+var OFERTAS = [
+  /* { nome:"iPhone 13 128GB", obs:"Novo, lacrado", valor:3299, tag:"Mais vendido" }, */
+  /* { nome:"Samsung A15 128GB", obs:"Novo, lacrado", valor:1199, tag:"" }, */
+  /* { nome:"iPhone 11 64GB", obs:"Seminovo, bateria 90%", valor:1899, tag:"Última unidade" } */
+];
+
+/* ==================== FIM DA EDIÇÃO ==================== */
+
+var $ = function(id){ return document.getElementById(id); };
+var BRL = new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"});
+function brl(n){ return BRL.format(isFinite(n)?n:0); }
+function digits(s){ return String(s||"").replace(/\D/g,""); }
+function waHref(num,text){ return "https://api.whatsapp.com/send?"+(num?"phone="+num+"&":"")+"text="+encodeURIComponent(text); }
+function foneBonito(d){ var x=digits(d); if(x.indexOf("55")===0) x=x.slice(2); if(x.length===11) return "("+x.slice(0,2)+") "+x.slice(2,7)+"-"+x.slice(7); if(x.length===10) return "("+x.slice(0,2)+") "+x.slice(2,6)+"-"+x.slice(6); return d; }
+
+/* Tabela Price, igual à da ficha */
+function price(pv,n,i){ if(!(pv>0)||!(n>0)) return 0; var j=(i||0)/100; if(j<=0) return pv/n; var f=Math.pow(1+j,n); return pv*(j*f)/(f-1); }
+
+/* ---------- máscara de dinheiro ---------- */
+function bindMoney(el,cb){
+  el.addEventListener("input",function(){
+    var d=digits(this.value).slice(0,10);
+    this.dataset.v = d ? String(parseInt(d,10)/100) : "0";
+    this.value = d ? (parseInt(d,10)/100).toLocaleString("pt-BR",{minimumFractionDigits:2}) : "";
+    cb();
+  });
+}
+function mval(id){ return parseFloat($(id).dataset.v||"0")||0; }
+
+/* ---------- parcelas ---------- */
+var PARC=[3,4,5,6,8,10,12,15,18,24], parcSel=12;
+PARC.forEach(function(n){
+  var b=document.createElement("button");
+  b.type="button"; b.className="chip"; b.textContent=n+"x";
+  b.setAttribute("aria-pressed", n===parcSel?"true":"false");
+  b.addEventListener("click",function(){
+    parcSel=n;
+    Array.prototype.forEach.call($("s_parc").children,function(c){ c.setAttribute("aria-pressed", c===b?"true":"false"); });
+    calc();
+  });
+  $("s_parc").appendChild(b);
+});
+
+/* ---------- simulação ---------- */
+function calc(){
+  var valor=mval("s_valor"), entrada=Math.min(mval("s_entrada"),valor), fin=Math.max(0,valor-entrada);
+  var p=price(fin,parcSel,JUROS);
+  $("q_n").textContent="em "+parcSel+"x";
+  $("q_parc").firstChild.nodeValue=brl(p);
+  var sub;
+  if(!(valor>0)){
+    sub="Coloque o valor do aparelho pra ver a parcela.";
+  } else {
+    var rendaMin=p/0.30;
+    sub=(entrada>0 ? "Entrada de "+brl(entrada)+" + " : "")+parcSel+"x de "+brl(p)+" no boleto"
+      +(JUROS>0?"":" — sem juros, só dividido")+". Pra essa parcela caber na regra dos 30%, a renda precisa ser de uns "+brl(Math.ceil(rendaMin/10)*10)+" por mês.";
+  }
+  $("q_sub").textContent=sub;
+
+  var msg;
+  if(valor>0){
+    msg="Oi! Vi o site da Tecno Cell e fiz uma simulação:\n\n"
+      +"📱 Aparelho de "+brl(valor)+"\n"
+      +(entrada>0?"💵 Entrada de "+brl(entrada)+"\n":"")
+      +"📅 "+parcSel+"x de "+brl(p)+" no boleto\n\n"
+      +"Consigo comprar no crediário?";
+  } else {
+    msg="Oi! Vi o site da Tecno Cell e queria saber sobre o crediário no boleto.";
+  }
+  $("waSim").href=waHref(LOJA_WHATS,msg);
+}
+
+bindMoney($("s_valor"),calc);
+bindMoney($("s_entrada"),calc);
+
+/* ---------- links de WhatsApp ---------- */
+$("waTop").href=waHref(LOJA_WHATS,"Oi! Vi o site da Tecno Cell e queria saber sobre o celular no boleto.");
+$("waBottom").href=waHref(LOJA_WHATS,"Oi! Queria saber o endereço e o horário da Tecno Cell.");
+$("waSticky").href=waHref(LOJA_WHATS,"Oi! Vi o site da Tecno Cell e queria saber sobre o crediário.");
+
+/* ---------- loja ---------- */
+if(ENDERECO) $("st_end").innerHTML='<b>'+ENDERECO+'</b><br>Luz, MG';
+$("st_hora").textContent = HORARIO || "Chame no WhatsApp pra confirmar o horário";
+$("st_fone").innerHTML = '<b>'+foneBonito(LOJA_WHATS)+'</b>';
+
+/* ---------- ofertas ---------- */
+if(OFERTAS.length){
+  $("ofertasCard").hidden=false;
+  var box=$("ofertas");
+  OFERTAS.forEach(function(o){
+    var p=price(o.valor,12,JUROS);
+    var el=document.createElement("div"); el.className="offer";
+    var n=document.createElement("div"); n.className="n";
+    n.innerHTML=(o.tag?'<span class="tag">'+o.tag+'</span>':'')+'<b>'+o.nome+'</b>'+(o.obs?'<small>'+o.obs+'</small>':'');
+    var pr=document.createElement("div"); pr.className="p";
+    pr.innerHTML='<b>'+brl(o.valor)+'</b><small>ou 12x de '+brl(p)+'</small>';
+    var a=document.createElement("a"); a.className="btn btn-wa"; a.target="_blank"; a.rel="noopener";
+    a.textContent="Quero esse"; a.style.padding="12px"; a.style.fontSize="14px";
+    a.href=waHref(LOJA_WHATS,"Oi! Me interessei no "+o.nome+" ("+brl(o.valor)+") que vi no site. Dá pra fazer no crediário?");
+    el.appendChild(n); el.appendChild(pr); el.appendChild(a);
+    box.appendChild(el);
+  });
+}
+
+/* ---------- barra fixa ---------- */
+var sticky=$("sticky");
+function onScroll(){ sticky.classList.toggle("on", window.scrollY>420); }
+window.addEventListener("scroll",onScroll,{passive:true});
+onScroll();
+
+calc();
+})();
+</script>
+</body>
+</html>
