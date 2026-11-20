@@ -149,6 +149,50 @@ de reparcelar. Cliente que conversa, a gente ajuda sempre.
 
 ---
 
+## 3b. Vídeos e artes prontos (`marketing/saida/`)
+
+Rode `node marketing/gerar.js` pra gerar. São 4 vídeos de 10s e 4 artes, nos
+formatos de story e de feed. Detalhes em `marketing/README.md`.
+
+**Legenda do Reels do iPhone (com preço):**
+```
+BLACK FRIDAY chegou na Tecno Cell 🔥
+
+[MODELO] em [X]x de R$ [VALOR] no boleto.
+Sem cartão de crédito, sem banco, sem burocracia.
+
+Quem aprova é a loja — e a resposta sai no mesmo dia.
+
+Simula a sua parcela no link da bio 👆
+📍 Luz, MG · (37) 99148-6624
+
+#BlackFriday #TecnoCell #Luz #LuzMG #CelularNoBoleto #Crediario #iPhone
+```
+
+**Legenda do Reels do crediário (sem preço, posta qualquer dia):**
+```
+Celular novo sem cartão de crédito existe ✅
+
+Aqui o crediário é nosso: até 24x no boleto, análise feita
+na loja e resposta no mesmo dia.
+
+Já ajudamos muita gente de Luz que levou "não" em outro lugar.
+
+Faz sua ficha no link da bio 👆
+
+#TecnoCell #Luz #LuzMG #CelularNoBoleto #Crediario #BlackFriday
+```
+
+**Como postar o Reels:** sobe o MP4, escolhe um áudio em alta na hora de postar
+(o vídeo é mudo de propósito pra isso), marca a localização **Luz, MG** e fixa
+o link na bio apontando pra `loja.html`.
+
+**Status do WhatsApp:** posta a arte `bf-iphone17-story.png` como status. Quem
+responder o status já cai direto na sua conversa — é a melhor fonte de ficha
+que existe e não custa nada.
+
+---
+
 ## 4. Stories (5 por semana, 15 segundos cada)
 
 1. **Enquete:** "Qual você trocaria hoje?" → iPhone / Android. Depois responde os votos.
