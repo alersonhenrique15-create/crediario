@@ -1,5 +1,5 @@
 # BLACK TECNO — estrutura da campanha
-### 25 a 28 de novembro · quarta a sábado
+### 25, 26 e 27 de novembro · quarta, quinta e sexta
 
 ---
 
@@ -87,20 +87,24 @@ quando vira crédito.
 
 ---
 
-## 5. Os quatro dias
+## 5. Os três dias
 
 | Dia | O que ele é | O que fazer |
 |---|---|---|
-| **Qua 25** | Abertura. Você chega antes de todo mundo | Relâmpago no fim da tarde |
-| **Qui 26** | O dia mais fraco | Relâmpago mais agressiva, pra encher o buraco |
-| **Sex 27** | A Black dos outros. Dia de maior disputa | Aqui o brinde é o diferencial, não o preço |
-| **Sáb 28** | Maior movimento na praça | Fecha forte. Última chamada o dia todo |
+| **Qua 25** | Abertura. Você chega antes de todo mundo | Uma relâmpago no fim da tarde |
+| **Qui 26** | O dia mais fraco da semana | Relâmpago mais agressiva, pra encher o buraco |
+| **Sex 27** | **Último dia E a Black dos outros** | Duas relâmpagos. "Último dia" o dia todo |
 
-**Por que até sábado e não até sexta:** fechar na sexta entrega o dia de
-maior movimento da praça pro concorrente. A MM foi de quarta a sábado
-justamente por isso.
+**A sexta carrega duas forças ao mesmo tempo:** é o encerramento da sua
+campanha e é o dia em que a cidade inteira já está em modo de compra.
+Urgência de último dia batendo no maior dia de varejo do ano.
 
----
+Por isso a sexta pede tratamento diferente dos outros dois:
+
+- **Duas relâmpagos**, uma de manhã e uma no fim da tarde
+- A palavra **ÚLTIMO DIA** em tudo: painel, status, vitrine
+- Quem passou na loja na quarta e não fechou, **recebe mensagem na
+  sexta de manhã**: *"hoje é o último dia da sua condição"*
 
 ## 6. O calendário de comunicação
 
@@ -109,11 +113,17 @@ justamente por isso.
 | **Sáb 22 (hoje)** | Teaser. *Não compre nada até quarta* |
 | **Dom 23** | **A revelação:** *Você paga 12. A gente devolve 1* |
 | **Seg 24 e Ter 25** | Contagem regressiva |
-| **25 a 28** | Evento. Uma relâmpago por dia, anunciada no painel e no status |
-| **Dom 29** | Agradecimento + condição exclusiva de dezembro pra quem comprou |
+| **Qua 25 e Qui 26** | Evento. Uma relâmpago por dia, no painel e no status |
+| **Sex 27** | Último dia. Duas relâmpagos e "ÚLTIMO DIA" em tudo |
+| **Sáb 28** | Tire a campanha do ar. Agradecimento + condição de dezembro |
 
 A regra: **hoje cria curiosidade, amanhã entrega o motivo.** Se você
 revelar o mecanismo hoje, amanhã ninguém tem razão pra voltar.
+
+**E sexta à noite, tire a arte do painel.** Promoção vencida rodando no
+telão no sábado traz gente no balcão cobrando condição que acabou — e aí
+você escolhe entre honrar fora do prazo ou criar um cliente irritado na
+porta da loja.
 
 ---
 
@@ -134,13 +144,13 @@ sorteio e não exige autorização nenhuma.
 
 ## 8. O que medir, todo dia
 
-| | Qua | Qui | Sex | Sáb |
-|---|---|---|---|---|
-| Pessoas que entraram | | | | |
-| Vendas | | | | |
-| Quantas em 12x ou mais | | | | |
-| Brindes entregues | | | | |
-| **Quantos pagaram diferença** | | | | |
+| | Qua 25 | Qui 26 | Sex 27 |
+|---|---|---|---|
+| Pessoas que entraram | | | |
+| Vendas | | | |
+| Quantas em 12x ou mais | | | |
+| Brindes entregues | | | |
+| **Quantos pagaram diferença** | | | |
 
 A última linha é a mais importante. Se muita gente pagar diferença, a
 promoção está se pagando sozinha e você repete em dezembro.
