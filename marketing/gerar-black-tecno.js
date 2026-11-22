@@ -35,6 +35,13 @@ const SAIDA = path.join(__dirname, 'saida');
 const TMP = '/tmp/claude-0/-home-user-crediario/1c85eb7c-7399-5dda-9949-ce2eca2e8105/scratchpad/frames-bt';
 const b64 = p => 'data:image/png;base64,' + fs.readFileSync(path.join(__dirname, 'logo', p)).toString('base64');
 const LOGO = b64('tecnocell-completa.png'), MARCA = b64('tecnocell-marca.png');
+/* grão: 8 texturas de ruído que alternam quadro a quadro, como filme */
+const grao = s => "data:image/svg+xml," + encodeURIComponent(
+  `<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'>` +
+  `<filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' seed='${s}'/></filter>` +
+  `<rect width='220' height='220' filter='url(#n)'/></svg>`);
+const GRAOS = [3, 11, 19, 27, 35, 43, 51, 59].map(grao);
+
 const ext = (c, n = 10) => Array.from({ length: n }, (_, i) => `${i + 1}px ${i + 1}px 0 ${c}`).join(',');
 
 let sem = 23;
@@ -52,8 +59,12 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000}
 .cena{position:absolute;inset:0;padding-bottom:${BARRA}px;display:flex;
       align-items:center;justify-content:center;opacity:0}
 .cena .box{text-align:center;transform-origin:center}
-.escura{background:radial-gradient(120% 92% at 50% 10%,#191C1F 0%,${PR} 58%,#000 100%)}
-.vermelha{background:radial-gradient(130% 108% at 50% 14%,#FF2A3C 0%,${VM} 46%,#B50D1E 100%)}
+.escura{background:
+   radial-gradient(70% 55% at 22% 8%,rgba(150,170,185,.16) 0%,rgba(0,0,0,0) 62%),
+   radial-gradient(120% 92% at 50% 10%,#1B1F23 0%,${PR} 58%,#000 100%)}
+.vermelha{background:
+   radial-gradient(60% 50% at 24% 10%,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 60%),
+   radial-gradient(130% 108% at 50% 14%,#FF2A3C 0%,${VM} 46%,#A80C1C 100%)}
 .nw{white-space:nowrap}
 .sup{font-weight:900;font-size:calc(var(--u)*6.4);line-height:1.08;letter-spacing:-.03em;color:#fff;
      text-shadow:${ext('#15181B', 8)}}
@@ -66,28 +77,47 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000}
 .nota{font-weight:700;font-size:calc(var(--u)*3.2);letter-spacing:.06em;margin-top:calc(var(--u)*2);color:#9AA2A8}
 .nota.clara{color:rgba(255,255,255,.9)}
 #logoF{width:calc(var(--u)*22);display:block;margin:0 auto}
-.descobrir{font-weight:900;font-size:calc(var(--u)*11);letter-spacing:-.03em;color:#fff;
+.descobrir{font-weight:900;font-size:calc(var(--u)*9.4);letter-spacing:-.03em;color:#fff;
      margin-top:calc(var(--u)*2.4);text-shadow:${ext('#15181B', 8)}}
 .linhaData{display:flex;align-items:center;justify-content:center;gap:calc(var(--u)*2);margin-top:calc(var(--u)*2.4)}
 .linhaData .chip{background:${VM};color:#fff;border-radius:999px;font-weight:900;
-     font-size:calc(var(--u)*5.6);padding:calc(var(--u)*.9) calc(var(--u)*2.6)}
+     font-size:calc(var(--u)*5);padding:calc(var(--u)*.9) calc(var(--u)*2.6)}
 .linhaData .d{font-weight:900;font-size:calc(var(--u)*4);letter-spacing:.14em;color:#fff}
 #igGrande{font-weight:900;font-size:calc(var(--u)*6.2);color:${VM};margin-top:calc(var(--u)*1.8);
      text-shadow:0 0 calc(var(--u)*3.4) rgba(240,22,43,.45)}
 
-#rodape{position:absolute;left:0;right:0;bottom:0;height:${BARRA}px;z-index:55;background:${PR};
-   border-top:3px solid ${VM};display:flex;flex-direction:column;align-items:center;
-   justify-content:center;gap:calc(var(--u)*1);opacity:0}
-#rodape .l1{display:flex;align-items:center;gap:calc(var(--u)*3)}
-#rodape img{height:calc(var(--u)*4.4);display:block}
-#rodape .ig{font-weight:900;font-size:calc(var(--u)*4);color:#fff}
-#rodape .tel{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:calc(var(--u)*2.9);color:#9AA2A8}
-#rodape .pip{width:calc(var(--u)*.9);height:calc(var(--u)*.9);border-radius:50%;background:${VM}}
-#rodape .l2{font-size:calc(var(--u)*1.75);color:#6E767C;letter-spacing:.04em;font-weight:600}
+#rodape{position:absolute;left:0;right:0;bottom:0;height:${BARRA}px;z-index:55;
+   background:linear-gradient(180deg,#14181B 0%,${PR} 100%);
+   display:flex;flex-direction:column;align-items:center;justify-content:center;
+   gap:calc(var(--u)*1.1);opacity:0;
+   box-shadow:0 calc(var(--u)*-1.6) calc(var(--u)*3.4) rgba(0,0,0,.55)}
+#rodape::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+   background:linear-gradient(90deg,rgba(240,22,43,0),${VM} 22%,#FF6070 50%,${VM} 78%,rgba(240,22,43,0))}
+#rodape .l1{display:flex;align-items:center;gap:calc(var(--u)*3.2)}
+#rodape .marca{height:calc(var(--u)*6);display:block}
+#rodape .item{display:flex;align-items:center;gap:calc(var(--u)*1.3)}
+#rodape .item svg{width:calc(var(--u)*3.8);height:calc(var(--u)*3.8);display:block;flex:0 0 auto}
+#rodape .ig{font-weight:900;font-size:calc(var(--u)*4.2);color:#fff;letter-spacing:.005em}
+#rodape .tel{font-family:"JetBrains Mono",monospace;font-weight:700;
+   font-size:calc(var(--u)*3.4);color:#E2E7EA;letter-spacing:.01em}
+#rodape .div{width:2px;height:calc(var(--u)*4.4);background:rgba(255,255,255,.16)}
+#rodape .l2{font-size:calc(var(--u)*1.7);color:#737B81;letter-spacing:.05em;font-weight:600}
 
 #barra{position:absolute;top:-14%;bottom:-14%;width:calc(var(--u)*1.2);left:0;z-index:60;
   background:linear-gradient(180deg,rgba(240,22,43,0),#FF4253 16%,#FFFFFF 50%,#FF4253 84%,rgba(240,22,43,0));
   box-shadow:0 0 calc(var(--u)*8) calc(var(--u)*2.4) rgba(240,22,43,.9);opacity:0}
+/* logo fixa no canto: marca presente o tempo todo, sem roubar o gancho */
+#marcaFixa{position:absolute;top:calc(var(--u)*3);left:calc(var(--u)*3.4);z-index:58;
+   height:calc(var(--u)*8.4);opacity:0;filter:drop-shadow(0 calc(var(--u)*.5) calc(var(--u)*1.4) rgba(0,0,0,.6))}
+/* reflexo: faz a logo parecer pousada numa superfície */
+#logoWrap{position:relative;display:block;margin:0 auto calc(var(--u)*3.4);width:calc(var(--u)*30)}
+#logoWrap img{width:100%;display:block}
+#logoRef{position:absolute;top:100%;left:0;transform:scaleY(-1);opacity:.2;
+   -webkit-mask-image:linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,0) 58%);
+   mask-image:linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,0) 58%)}
+/* grão de filme */
+.grao{position:absolute;inset:-6%;z-index:72;pointer-events:none;opacity:0;
+   background-repeat:repeat;background-size:220px 220px;mix-blend-mode:overlay}
 #poeira{position:absolute;inset:0;z-index:70;pointer-events:none}
 #poeira i{position:absolute;border-radius:50%;background:#fff;display:block}
 #vinheta{position:absolute;inset:0;z-index:71;pointer-events:none;
@@ -114,20 +144,32 @@ const CORPO = `
   </div></div>
 
   <div class="cena escura" id="s3" style="z-index:40"><div class="box">
-    <img id="logoF" src="${LOGO}" alt="Tecno Cell">
+    <div id="logoWrap"><img id="logoF" src="${LOGO}" alt="Tecno Cell">
+      <img id="logoRef" src="${LOGO}" alt=""></div>
     <div class="descobrir nw" id="e4">${TX.s4a}</div>
-    <div class="nw" id="igGrande">${TX.insta}</div>
     <div class="linhaData nw" id="e5">
       <span class="chip">${TX.data}</span><span class="d">${TX.dia}</span>
     </div>
   </div></div>
 
   <div id="rodape">
-    <div class="l1"><img src="${MARCA}" alt=""><span class="pip"></span>
-      <span class="ig">${TX.insta}</span><span class="pip"></span>
-      <span class="tel">${TX.zap}</span></div>
+    <div class="l1">
+      <img class="marca" src="${MARCA}" alt="Tecno Cell">
+      <span class="div"></span>
+      <span class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+          <rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/>
+          <circle cx="12" cy="12" r="4.6"/><circle cx="17.6" cy="6.4" r="1.25" fill="#fff" stroke="none"/>
+        </svg><span class="ig">${TX.insta}</span></span>
+      <span class="div"></span>
+      <span class="item">
+        <svg viewBox="0 0 24 24" fill="#E2E7EA"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <span class="tel">${TX.zap}</span></span>
+    </div>
     <div class="l2">${TX.legal}</div>
-  </div>`;
+  </div>
+  <img id="marcaFixa" src="${MARCA}" alt="">
+  ${GRAOS.map((g, i) => `<div class="grao" id="g${i}" style="background-image:url('${g}')"></div>`).join('')}`;
 
 const html = `<!doctype html><meta charset="utf-8"><style>${ESTILO}</style>
 <div id="p">${CORPO}<div id="barra"></div><div id="poeira"></div><div id="vinheta"></div></div>
@@ -173,6 +215,14 @@ window.render=function(t){
   });
   var bb=$('#barra'); bb.style.opacity=bx>=0?1:0; if(bx>=0)bb.style.left=(bx*100)+'%';
 
+  /* grão alternando a cada quadro, como filme */
+  var q=Math.round(t*30)%8;
+  for(var i=0;i<8;i++) document.getElementById('g'+i).style.opacity = (i===q?0.055:0);
+
+  var mf=$('#marcaFixa'), mfo=seg(t,0.85,1.40);
+  mf.style.opacity=(mfo*0.92).toFixed(3);
+  mf.style.transform='translateY('+((1-outQuint(mfo))*-2.4*U).toFixed(2)+'px)';
+
   var r=$('#rodape'), rr=seg(t,1.0,1.5);
   r.style.opacity=rr.toFixed(3);
   r.style.transform='translateY('+((1-outQuint(rr))*BARRA).toFixed(1)+'px)';
@@ -186,7 +236,6 @@ window.render=function(t){
   sobe($('#e3'),9.20,9.85,3.0);
   sobe($('#n3'),9.75,10.30,2.0);
   sobe($('#e4'),12.15,12.70,2.6);
-  sobe($('#igGrande'),12.50,13.05,2.2);
   sobe($('#e5'),12.85,13.40,2.0);
 };
 window.render(0);
