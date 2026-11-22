@@ -39,7 +39,9 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000}
 #p{position:relative;width:${W}px;height:${H}px;overflow:hidden;--u:${W/100}px;color:#fff;
   font-family:"Inter Display","Inter",sans-serif}
 .cena{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;
+  padding:calc(var(--u)*10) calc(var(--u)*6) calc(var(--u)*5);
   perspective:calc(var(--u)*90);perspective-origin:50% 42%}
+.comFone{padding-right:calc(var(--u)*26)}
 .fundoEsc{background:radial-gradient(70% 55% at 24% 6%,rgba(150,170,185,.16),rgba(0,0,0,0) 62%),
   radial-gradient(120% 95% at 50% 16%,#1C2125 0%,${PR} 58%,#000 100%)}
 .fundoVm{background:radial-gradient(60% 50% at 24% 10%,rgba(255,255,255,.22),rgba(255,255,255,0) 60%),
@@ -75,6 +77,19 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000}
 .contF .div{width:2px;height:calc(var(--u)*4);background:rgba(255,255,255,.2)}
 .contF .tel{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:calc(var(--u)*3.4);color:#D6DCE0}
 .contF svg{width:calc(var(--u)*3.6);height:calc(var(--u)*3.6)}
+#fone3d{position:absolute;right:calc(var(--u)*-7);top:50%;z-index:-2;
+  transform-style:preserve-3d;opacity:.95}
+#fone3d .corpo{width:calc(var(--u)*28);height:calc(var(--u)*58);border-radius:calc(var(--u)*3.6);
+  background:linear-gradient(145deg,#2A3237 0%,#12171A 45%,#080A0C 100%);
+  border:calc(var(--u)*.35) solid rgba(255,255,255,.16);position:relative;
+  box-shadow:0 calc(var(--u)*2) calc(var(--u)*6) rgba(0,0,0,.8),
+             inset 0 calc(var(--u)*.2) 0 rgba(255,255,255,.2),
+             0 0 calc(var(--u)*5) rgba(240,22,43,.3)}
+#fone3d .tela{position:absolute;inset:calc(var(--u)*.9);border-radius:calc(var(--u)*3);
+  background:linear-gradient(160deg,rgba(240,22,43,.42) 0%,rgba(30,36,40,.9) 48%,rgba(8,10,12,.95) 100%);
+  box-shadow:inset 0 0 calc(var(--u)*4) rgba(240,22,43,.35)}
+#fone3d .ilha{position:absolute;top:calc(var(--u)*2);left:50%;transform:translateX(-50%);
+  width:calc(var(--u)*7);height:calc(var(--u)*1.8);border-radius:999px;background:#05070A}
 #anel{position:absolute;left:50%;top:50%;width:calc(var(--u)*70);height:calc(var(--u)*70);
   margin:calc(var(--u)*-35) 0 0 calc(var(--u)*-35);border-radius:50%;z-index:-1;
   border:calc(var(--u)*.8) solid rgba(240,22,43,.42);
@@ -92,7 +107,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000}
   background:radial-gradient(120% 94% at 50% 46%,rgba(0,0,0,0) 54%,rgba(0,0,0,.62) 100%)}
 </style>
 <div id="p">
-  <div class="cena fundoEsc" id="s0" style="z-index:10"><div class="box">
+  <div class="cena fundoEsc comFone" id="s0" style="z-index:10"><div id="fone3d"><div class="corpo"><div class="tela"></div><div class="ilha"></div></div></div><div class="box">
     <div id="anel"></div>
     <div class="big cromo nw">${TX.n1}</div>
     <div class="mid cromo nw"><i></i>${TX.n2}<i></i></div>
@@ -100,7 +115,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000}
     <div class="ass nw" id="ass">${TX.ass}</div>
   </div></div>
 
-  <div class="cena fundoEsc" id="s1" style="z-index:20"><div class="box">
+  <div class="cena fundoEsc comFone" id="s1" style="z-index:20"><div id="fone3d"><div class="corpo"><div class="tela"></div><div class="ilha"></div></div></div><div class="box">
     <div class="l2 branco3d nw">${TX.f1}</div>
     <div class="l2 branco3d nw">${TX.f2}</div>
     <div class="l2 rubi nw" id="antes">${TX.f3}</div>
@@ -112,7 +127,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000}
     <div class="cats nw" id="cats">${TX.cats}</div>
   </div></div>
 
-  <div class="cena fundoEsc" id="s3" style="z-index:40"><div class="box">
+  <div class="cena fundoEsc comFone" id="s3" style="z-index:40"><div id="fone3d"><div class="corpo"><div class="tela"></div><div class="ilha"></div></div></div><div class="box">
     <div id="logoWrap"><img src="${LOGO}" alt="Tecno Cell"><img id="logoRef" src="${LOGO}" alt=""></div>
     <div class="ctaF nw" id="ctaF">${TX.cta}</div>
     <div class="contF nw" id="contF">
@@ -140,7 +155,10 @@ POEIRA.forEach(function(d){var e=document.createElement('i');
 var FIT=[1,1,1,1];
 function medir(){
   ENTRA.forEach(function(_,i){var c=document.getElementById('s'+i),b=c.querySelector('.box');
-    FIT[i]=Math.min(1,(1920-160)/b.offsetWidth,(1080-130)/b.offsetHeight);});
+    var cs=getComputedStyle(c);
+    var aw=c.clientWidth -parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+    var ah=c.clientHeight-parseFloat(cs.paddingTop) -parseFloat(cs.paddingBottom);
+    FIT[i]=Math.min(aw*0.94/b.offsetWidth, ah*0.92/b.offsetHeight);});
   document.documentElement.dataset.fit=FIT.map(function(v){return v.toFixed(3);}).join(',');
   document.documentElement.dataset.pronto='1';
 }
@@ -172,6 +190,13 @@ window.render=function(t){
       'deg) rotateY('+(ry-deriva).toFixed(2)+'deg) scale('+(FIT[i]*(1+.05*p)).toFixed(4)+')';
   });
   var bb=$('#barra');bb.style.opacity=bx>=0?1:0;if(bx>=0)bb.style.left=(bx*100)+'%';
+
+  /* o celular gira devagar e sobe de leve: objeto único que a câmera contorna */
+  Array.prototype.forEach.call(document.querySelectorAll('#fone3d'),function(f){
+    var g=Math.sin(t*0.42)*17-16, inc=Math.cos(t*0.33)*5;
+    f.style.transform='translateY(-50%) rotateY('+g.toFixed(2)+'deg) rotateX('+inc.toFixed(2)+
+      'deg) rotateZ(-8deg) translateZ('+(-14*U).toFixed(1)+'px)';
+  });
 
   var mf=$('#marcaFixa'),m=seg(t,.9,1.5);
   mf.style.opacity=(m*.92).toFixed(3);
